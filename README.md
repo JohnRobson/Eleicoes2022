@@ -1,6 +1,6 @@
 ## Base de Dados das Eleições 2022
 
-################################################################################
+########################################################################
 
 AVISO de Licença de Uso e Reserva de Direitos Autorais BSD 3 Clause
 
@@ -12,7 +12,7 @@ esse aviso de direitos autorais.
 
 Repositório oficial: https://github.com/JohnRobson/Eleicoes2022
 
-################################################################################
+########################################################################
 
 
 Este aquivo tem um banco de dados SQLite com o Registro de Todas as Urnas (944.051) com os Votos para Presidente e Governador no 1 e 2 Turnos nas eleições de 2022.
@@ -52,7 +52,11 @@ SELECT turno, SUM(vPresA22) AS "Bolsonaro", SUM(vPresB13) AS "Lula", SUM(vPresNu
 Resultado dos 2 Turnos para cada estado:
 SELECT turno, regiao, estado, SUM(vPresA22) AS "Bolsonaro", SUM(vPresB13) AS "Lula", SUM(vPresNulo) AS "pNulo", SUM(vPresBranco) AS "pBranco", SUM(vGovA) AS "GovA", SUM(vGovB) AS "GovB", SUM(vGovNulo) AS "gNulo", SUM(vGovBranco) AS "gBranco" FROM urnas GROUP BY turno, estado ORDER BY turno, regiao, estado
 
-Fonte: https://resultados.tse.jus.br/oficial/app/index.html#/eleicao/resultados
+Fontes:
+https://resultados.tse.jus.br/oficial/app/index.html#/eleicao/resultados
+https://dadosabertos.tse.jus.br/dataset/resultados-2022-arquivos-transmitidos-para-totalizacao
+
+Lista dos Estados e a Seleção de 2 (dois) governadores para registro dos dados:
 
 ````{verbatim, lang = "markdown"}
 {
