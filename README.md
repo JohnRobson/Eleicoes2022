@@ -14,6 +14,7 @@ Repositório oficial: https://github.com/JohnRobson/Eleicoes2022
 
 ########################################################################
 
+> DOWNLOAD: https://mega.nz/file/AA1xFIba#qtNIePEohlBJW1ymFcoY1M3K1ZQ02z2wVy1s3Qaubo8
 
 Este aquivo tem um banco de dados SQLite com o Registro de Todas as Urnas (944.051) com os Votos para Presidente e Governador no 1 e 2 Turnos nas eleições de 2022.
 
