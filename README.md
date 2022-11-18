@@ -1,6 +1,8 @@
 ## Base de Dados das Eleições 2022
 
-r''' AVISO de Licença de Uso e Reserva de Direitos Autorais BSD 3 Clause
+################################################################################
+
+AVISO de Licença de Uso e Reserva de Direitos Autorais BSD 3 Clause
 
 Copyright (c) 2022 por John Robson <john.robson@msn.com> (PIX)
 
@@ -8,9 +10,10 @@ Todo o Código fonte e demais arquivos estão sobre a Licença BSD 3 Clause.
 Modificações, Redistribuição, uso Comercial são permitidos, sempre informando
 esse aviso de direitos autorais.
 
-Repositório oficial: https://github.com/JohnRobson '''
+Repositório oficial: https://github.com/JohnRobson/Eleicoes2022
 
-'''
+################################################################################
+
 
 Este aquivo tem um banco de dados SQLite com o Registro de Todas as Urnas (944.051) com os Votos para Presidente e Governador no 1 e 2 Turnos nas eleições de 2022.
 
@@ -51,7 +54,7 @@ SELECT turno, regiao, estado, SUM(vPresA22) AS "Bolsonaro", SUM(vPresB13) AS "Lu
 
 Fonte: https://resultados.tse.jus.br/oficial/app/index.html#/eleicao/resultados
 
-
+````{verbatim, lang = "markdown"}
 {
 'DF': ['CO', 'Distrito Federal', 15, 43], # Ibaneis Rocha (15 MDB) X (43 PV) Leandro Grass
 'GO': ['CO', 'Goiás', 44, 22], # Ronaldo Caiado (União Brasil) X (22 PL) Major Vitor Hugo
@@ -82,4 +85,5 @@ Fonte: https://resultados.tse.jus.br/oficial/app/index.html#/eleicao/resultados
 'SC': ['S', 'Santa Catarina', 22, 13], # Jorginho Mello (22 PL) X Décio Lima (13 PT)
 'ZZ': ['EX', 'Exterior', 0, 0]
 }
+````
 
