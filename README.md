@@ -1,6 +1,6 @@
 ## Base de Dados das Eleições 2022
 
-########################################################################
+################################################################
 
 AVISO de Licença de Uso e Reserva de Direitos Autorais BSD 3 Clause
 
@@ -12,7 +12,7 @@ esse aviso de direitos autorais.
 
 Repositório oficial: https://github.com/JohnRobson/Eleicoes2022
 
-########################################################################
+################################################################
 
 > DOWNLOAD: https://mega.nz/file/AA1xFIba#qtNIePEohlBJW1ymFcoY1M3K1ZQ02z2wVy1s3Qaubo8
 
@@ -22,6 +22,7 @@ Este aquivo tem um banco de dados SQLite com o Registro de Todas as Urnas (944.0
 
 Os nomes das Colunas são auto-explicativos, quanto ao Nome das colunas de Votos:
 
+````{verbatim, lang = "markdown"}
 vPresA22 = votos para o Presidente Bolsonaro
 vPresB13 = votos para o Lula
 vPresNulo = votos para presidente nulos
@@ -36,16 +37,7 @@ vPresTotal = é a conta do total de votos para presidente registrados no Log da 
 
 jaVotou = quando o mesário tenta habilitar alguém que já tinha votado
 (provavelmente alguém votou no lugar daquela pessoa e mais tarde ela apareceu para votar)
-
-
-Para Escolher o Governador Mais ALINHADO com cada condidato, eu consultei várias informações públicas
-alguns estados, como em SP o alinhamento é bem evidente para ambos os candidatos,
-em vários outros estados tb existiam alinhamento para pelo menos 1 canditado
-em poucos estados esse alinhamento era neutro.
-
-Mas a Regra é o vGov"A" é mais alinhado com o Bolsonaro e o vGov"B" com o Lula,
-o que torna mais fácil as alálises para comparar se o Presidente Bolsonaro teve
-pelo menos tantos votos quanto seu candidato a governador mais alinhado vGovA.
+````
 
 Resultado dos 2 Turnos:
 ````{verbatim, lang = "markdown"}
@@ -96,3 +88,11 @@ Lista dos Estados e a Seleção de 2 (dois) governadores para registro dos dados
 }
 ````
 
+Para Escolher o Governador Mais ALINHADO com cada condidato, eu consultei várias informações públicas
+alguns estados, como em SP o alinhamento é bem evidente para ambos os candidatos,
+em vários outros estados tb existiam alinhamento para pelo menos 1 canditado
+em poucos estados esse alinhamento era neutro.
+
+Mas a Regra é o vGov"A" é mais alinhado com o Bolsonaro e o vGov"B" com o Lula,
+o que torna mais fácil as alálises para comparar se o Presidente Bolsonaro teve
+pelo menos tantos votos quanto seu candidato a governador mais alinhado vGovA.
