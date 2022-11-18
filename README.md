@@ -33,8 +33,8 @@ vGovBranco = votos governador branco
 
 vPresTotal = é a conta do total de votos para presidente registrados no Log da urna, tem que bater com o BU
 
-jaVotou = quando o mesário tenta habilitar alguém que já tinha vitado
-(provavelmente o mesário votou no lugar daquela pessoa e mais tarde ela apareceu para votar)
+jaVotou = quando o mesário tenta habilitar alguém que já tinha votado
+(provavelmente alguém votou no lugar daquela pessoa e mais tarde ela apareceu para votar)
 
 
 Para Escolher o Governador Mais ALINHADO com cada condidato, eu consultei várias informações públicas
@@ -47,10 +47,14 @@ o que torna mais fácil as alálises para comparar se o Presidente Bolsonaro tev
 pelo menos tantos votos quanto seu candidato a governador mais alinhado vGovA.
 
 Resultado dos 2 Turnos:
+````{verbatim, lang = "markdown"}
 SELECT turno, SUM(vPresA22) AS "Bolsonaro", SUM(vPresB13) AS "Lula", SUM(vPresNulo) AS "pNulo", SUM(vPresBranco) AS "pBranco" FROM urnas GROUP BY turno ORDER BY turno
+````
 
 Resultado dos 2 Turnos para cada estado:
+````{verbatim, lang = "markdown"}
 SELECT turno, regiao, estado, SUM(vPresA22) AS "Bolsonaro", SUM(vPresB13) AS "Lula", SUM(vPresNulo) AS "pNulo", SUM(vPresBranco) AS "pBranco", SUM(vGovA) AS "GovA", SUM(vGovB) AS "GovB", SUM(vGovNulo) AS "gNulo", SUM(vGovBranco) AS "gBranco" FROM urnas GROUP BY turno, estado ORDER BY turno, regiao, estado
+````
 
 Fontes:
 https://resultados.tse.jus.br/oficial/app/index.html#/eleicao/resultados
