@@ -1,6 +1,4 @@
-## Base de Dados das Eleições 2022
-
-########################################################################
+r''' ################################################################
 
 AVISO de Licença de Uso e Reserva de Direitos Autorais BSD 3 Clause
 
@@ -12,82 +10,344 @@ esse aviso de direitos autorais.
 
 Repositório oficial: https://github.com/JohnRobson/Eleicoes2022
 
-########################################################################
+################################################################ '''
 
 
-Este aquivo tem um banco de dados SQLite com o Registro de Todas as Urnas (944.051) com os Votos para Presidente e Governador no 1 e 2 Turnos nas eleições de 2022.
-
-É uma ótima base de dados para pesquisas facilmente exportável para todos os tipos de softwares de análsies.
-
-Os nomes das Colunas são auto-explicativos, quanto ao Nome das colunas de Votos:
-
-vPresA22 = votos para o Presidente Bolsonaro
-vPresB13 = votos para o Lula
-vPresNulo = votos para presidente nulos
-vPresBranco = votos para presidente branco
-
-vGovA = Votos do Governador MAIS Alinhado com Bolsonaro
-vGovB =  Votos do Governador MAIS Alinhado Alinhado com Lula
-vGovNulo = votos governador nulo
-vGovBranco = votos governador branco
-
-vPresTotal = é a conta do total de votos para presidente registrados no Log da urna, tem que bater com o BU
-
-jaVotou = quando o mesário tenta habilitar alguém que já tinha vitado
-(provavelmente o mesário votou no lugar daquela pessoa e mais tarde ela apareceu para votar)
+r'''
+# Requerimentos do Hardware:
+- Muitos Cores, pois todos os processos usam paralelização das tarefas.
+- O processamento em cada Core usará +-500M. (CPU de 10 cores, precisa de 5G)
+- Aproximadamente 120G livres no HD, os 28 arquivos Zip das Totalizações dos
+	estados (2 turno) ocupam 87GB, o maior arquivo (SP) 18.8G. Descoompactando
+	os arquivos .bu e .logjez ocupam 14G.
 
 
-Para Escolher o Governador Mais ALINHADO com cada condidato, eu consultei várias informações públicas
-alguns estados, como em SP o alinhamento é bem evidente para ambos os candidatos,
-em vários outros estados tb existiam alinhamento para pelo menos 1 canditado
-em poucos estados esse alinhamento era neutro.
+# Este código:
+1) Descompacta os aquivos de Totalização das Urnas (.zip) de cada Estado.
+2) Processa todas as urnas descompactadas, lendo os dados dos Boletins de Urna (BU)
+	e também os dados do arquivo Log da Urna.
+3) Salva esses dados em um Banco de dados.
+4) Repete este processo para cada estado.
 
-Mas a Regra é o vGov"A" é mais alinhado com o Bolsonaro e o vGov"B" com o Lula,
-o que torna mais fácil as alálises para comparar se o Presidente Bolsonaro teve
-pelo menos tantos votos quanto seu candidato a governador mais alinhado vGovA.
+Este código foi feito para Descompatar o BU e o Log da Urna do 2o Turno das Eleições de 2022
 
-Resultado dos 2 Turnos:
-SELECT turno, SUM(vPresA22) AS "Bolsonaro", SUM(vPresB13) AS "Lula", SUM(vPresNulo) AS "pNulo", SUM(vPresBranco) AS "pBranco" FROM urnas GROUP BY turno ORDER BY turno
+Todos os dados Relevantes do BU foram adicionados no BD, apenas poucos detalhes
+como "numeroSerieFC e FV" não foram adicionados.
 
-Resultado dos 2 Turnos para cada estado:
-SELECT turno, regiao, estado, SUM(vPresA22) AS "Bolsonaro", SUM(vPresB13) AS "Lula", SUM(vPresNulo) AS "pNulo", SUM(vPresBranco) AS "pBranco", SUM(vGovA) AS "GovA", SUM(vGovB) AS "GovB", SUM(vGovNulo) AS "gNulo", SUM(vGovBranco) AS "gBranco" FROM urnas GROUP BY turno, estado ORDER BY turno, regiao, estado
+O Log da Urna tem muitas informações que podem ser interessantes, portando para futuros
+estudos, será necessário novamente executar todo o processo.
 
-Fontes:
-https://resultados.tse.jus.br/oficial/app/index.html#/eleicao/resultados
+
+# Veja o Arquivo: "totalizações.txt"
+# O download do conjunto de dados pode ser feito nos sites:
+https://dadosabertos.tse.jus.br/dataset/
+https://dados.gov.br/organization/tribunal-superior-eleitoral-tse
+
+# Resultados 2022 - Arquivos transmitidos para totalização # Utilizados neste programa
 https://dadosabertos.tse.jus.br/dataset/resultados-2022-arquivos-transmitidos-para-totalizacao
+https://dados.gov.br/dataset/resultados-2022-arquivos-transmitidos-para-totalizacao
 
-Lista dos Estados e a Seleção de 2 (dois) governadores para registro dos dados:
+# Resultados - 2022 - Boletim de Urna
+https://dadosabertos.tse.jus.br/dataset/resultados-2022-boletim-de-urna
+https://dados.gov.br/dataset/resultados-2022-boletim-de-urna
+'''
 
-````{verbatim, lang = "markdown"}
-{
-'DF': ['CO', 'Distrito Federal', 15, 43], # Ibaneis Rocha (15 MDB) X (43 PV) Leandro Grass
-'GO': ['CO', 'Goiás', 44, 22], # Ronaldo Caiado (União Brasil) X (22 PL) Major Vitor Hugo
-'MT': ['CO', 'Mato Grosso', 44, 43], # Mauro Mendes (44 União Brasil) X (43 PV) Márcia Pinheiro
-'MS': ['CO', 'Mato Grosso do Sul', 28, 45], # Capitão Contar (28 PRTB) X Eduardo Riedel (45 PSDB)
-'AL': ['NE', 'Alagoas', 44, 15], # Rodrigo Cunha (44 União Brasil) X Paulo Dantas (15 MDB)
-'BA': ['NE', 'Bahia', 44, 13], # ACM Neto (neutro) (44 União Brasil) X Jerônimo Rodrigues (13 PT)
-'CE': ['NE', 'Ceará', 44, 13], # Capitão Wagner (44 União Brasil) X Elmano de Freitas (13 PT)
-'MA': ['NE', 'Maranhão', 20, 40], # Lahesio Bonfim (20 PSC)X Carlos Brandão (40 PSB)
-'PB': ['NE', 'Paraíba', 45, 40], # Pedro Cunha Lima (neutro) (45 PSDB) X João Azevêdo (40 PSB)
-'PE': ['NE', 'Pernambuco', 45, 77], # Raquel Lyra (45 PSDB) X Marília Arraes (77 Solidariedade)
-'PI': ['NE', 'Piauí', 44, 13], # Silvio Mendes (44 União Brasil) X Rafael Fonteles (13 PT)
-'RN': ['NE', 'Rio Grande do Norte', 77, 13], # Fabio Dantas (77 Solidariedade) X Fátima Bezerra (13 PT)
-'SE': ['NE', 'Sergipe', 55, 13], # Fábio Mitidieri (55 PSD) X Rogério Carvalho (13 PT)
-'AC': ['N', 'Acre', 11, 13], # Gladson Cameli (11 PP) x Jorge Viana (13 PT)
-'AP': ['N', 'Amapá', 55, 77], # Jaime Nunes (55 PSD) x Clécio (77 SD)
-'AM': ['N', 'Amazonas', 44, 15], # Wilson Lima (44 União Brasil) X Eduardo Braga (15 MDB)
-'PA': ['N', 'Pará', 22, 15], # Zequina Marinho (22 PL) X Helder Barbalho (15 MDB)
-'RO': ['N', 'Rondônia', 22, 44], # Marcos Rogério (22 PL) X Coronel Marcos Rocha (44 União Brasil)
-'RR': ['N', 'Roraima', 11, 15], # Antônio Denarium (11 PP) X Tereza Surita (15 MDB)
-'TO': ['N', 'Tocantins', 10, 22], # Wanderlei Barbosa (10 Republicanos) X Ronaldo Dimas (22 PL)
-'ES': ['SE', 'Espírito Santo', 22, 40], # Carlos Manato (22 PL) X Renato Casagrande (40 PSB)
-'MG': ['SE', 'Minas Gerais', 30, 13], # Romeu Zema (Novo) X Kalil (13 PT)
-'RJ': ['SE', 'Rio de Janeiro', 22, 40], # Cláudio Castro (PL) X Marcelo Freixo (PSB 40)
-'SP': ['SE', 'São Paulo', 10, 13], # Tarcísio de Freitas (10 Republicanos) X Fernando Haddad (13 PT)
-'PR': ['S', 'Paraná', 55, 13], # Ratinho Jr. (55 PSD) X Requião (13 PT)
-'RS': ['S', 'Rio Grande do Sul', 22, 45], # Onyx Lorenzoni (22 PL) X Eduardo Leite (neutro) (45 PSDB)
-'SC': ['S', 'Santa Catarina', 22, 13], # Jorginho Mello (22 PL) X Décio Lima (13 PT)
-'ZZ': ['EX', 'Exterior', 0, 0]
-}
-````
+
+
+# Executar exemplo de leitura de BU
+$ python tse/python/bu_dump.py -a tse/spec/bu.asn1 -b test/o00407-1310200990074.bu
+
+
+
+
+
+LINKS PARA DOWNLOAD 2o TURNO
+
+# $ aria2c --always-resume=true --continue --check-integrity=true --remote-time=true --file-allocation=prealloc --show-console-readout=true --max-tries=10 --timeout=600 --quiet=false --input-file=/tmp/download_links.txt
+
+* Os arquivos do 1o Turno tem o mesmo nome, o que muda é apenas "1t" ao invés de "2t".
+
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_AC.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_AL.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_AM.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_AP.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_BA.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_CE.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_DF.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_ES.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_GO.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_MA.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_MG.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_MS.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_MT.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_PA.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_PB.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_PE.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_PI.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_PR.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_RJ.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_RN.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_RO.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_RR.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_RS.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_SC.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_SE.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_SP.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_TO.zip
+https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_ZZ.zip
+
+
+MD5SUM
+
+2o TURNO
+9bed36fd4f09a4fab7cc6e9e46df6426  bu_imgbu_logjez_rdv_vscmr_2022_2t_AC.zip
+15ece6270ec262db32a1ac1c18062c2c  bu_imgbu_logjez_rdv_vscmr_2022_2t_AL.zip
+76e0ad9b7180080f8c4874810e81029a  bu_imgbu_logjez_rdv_vscmr_2022_2t_AM.zip
+cdcf83f81afddf43219d7a8a5a121033  bu_imgbu_logjez_rdv_vscmr_2022_2t_AP.zip
+966956ea6f1185378491cdd45e901216  bu_imgbu_logjez_rdv_vscmr_2022_2t_BA.zip
+aa74c4e9030745e5605e5b5cfa9c0370  bu_imgbu_logjez_rdv_vscmr_2022_2t_CE.zip
+8d603587abfefa2316b4c10d52cbdf99  bu_imgbu_logjez_rdv_vscmr_2022_2t_DF.zip
+dff618be19be3dcc01652cde231da456  bu_imgbu_logjez_rdv_vscmr_2022_2t_ES.zip
+a17e49a9d61ac431649b59dc4b640cde  bu_imgbu_logjez_rdv_vscmr_2022_2t_GO.zip
+733119cdb07db32a31b781d53720355e  bu_imgbu_logjez_rdv_vscmr_2022_2t_MA.zip
+5ae3e36a2110c8c42c50a0dc5aec1a47  bu_imgbu_logjez_rdv_vscmr_2022_2t_MG.zip
+5a5d9a8c4da2ae11d42a22d4f31f750c  bu_imgbu_logjez_rdv_vscmr_2022_2t_MS.zip
+05f3d42d250f29c349f43c0fa634d344  bu_imgbu_logjez_rdv_vscmr_2022_2t_MT.zip
+c9f0cb9d9798603963556f27fe6cd12b  bu_imgbu_logjez_rdv_vscmr_2022_2t_PA.zip
+7a015a73036122ef47335df1726b4157  bu_imgbu_logjez_rdv_vscmr_2022_2t_PB.zip
+9e3dd8de9416170ea43e42a9fe3b9d4e  bu_imgbu_logjez_rdv_vscmr_2022_2t_PE.zip
+d354d936e8ad187ae4c123a2cad87ead  bu_imgbu_logjez_rdv_vscmr_2022_2t_PI.zip
+d9cffa36ee787960b48b318667e27514  bu_imgbu_logjez_rdv_vscmr_2022_2t_PR.zip
+51e45ed9df89ce18d220cfb3bbe2f454  bu_imgbu_logjez_rdv_vscmr_2022_2t_RJ.zip
+9cbf607602c362c57349be5769887c8f  bu_imgbu_logjez_rdv_vscmr_2022_2t_RN.zip
+e207a7b4abba2b518646adf255d386da  bu_imgbu_logjez_rdv_vscmr_2022_2t_RO.zip
+70715fc5bdcb769bf63498c16bd3288d  bu_imgbu_logjez_rdv_vscmr_2022_2t_RR.zip
+00dbb5b1a5f2a70b3f8e870c586ae75f  bu_imgbu_logjez_rdv_vscmr_2022_2t_RS.zip
+e2c9b6141a63bff6481b5ec8f16be71d  bu_imgbu_logjez_rdv_vscmr_2022_2t_SC.zip
+c7056d8d4f727c169ece0f6d62ff7e44  bu_imgbu_logjez_rdv_vscmr_2022_2t_SE.zip
+b26586de83bf58a2fda3c768ecb7d70a  bu_imgbu_logjez_rdv_vscmr_2022_2t_SP.zip
+534f5cf3846014f13dfcf84dd204286f  bu_imgbu_logjez_rdv_vscmr_2022_2t_TO.zip
+00e59776a5fa2add3602fc64ef3b88ee  bu_imgbu_logjez_rdv_vscmr_2022_2t_ZZ.zip
+
+1o TURNO
+b109ec37786c8c296a08cea52dbb4e72  bu_imgbu_logjez_rdv_vscmr_2022_1t_AC.zip
+821b4eef8ab12ac7809157225ec5b630  bu_imgbu_logjez_rdv_vscmr_2022_1t_AL.zip
+8c37946a92a8a57dd33a28b05b3db96f  bu_imgbu_logjez_rdv_vscmr_2022_1t_AM.zip
+60772a0238f34eff09ca2d58f233ed61  bu_imgbu_logjez_rdv_vscmr_2022_1t_AP.zip
+aa3f6d3a0052a63c98200ff46f4b973e  bu_imgbu_logjez_rdv_vscmr_2022_1t_BA.zip
+d0221b9ac7304a4c9762246ece955f84  bu_imgbu_logjez_rdv_vscmr_2022_1t_CE.zip
+44849d36e6c8e33799472c97f7436b21  bu_imgbu_logjez_rdv_vscmr_2022_1t_DF.zip
+dc9d8124395d2d25411743301e0edb33  bu_imgbu_logjez_rdv_vscmr_2022_1t_ES.zip
+ad89b9b9f7ddbceeac0fe1e507b056cd  bu_imgbu_logjez_rdv_vscmr_2022_1t_GO.zip
+db0951a235fb315bd067d84192ef48c5  bu_imgbu_logjez_rdv_vscmr_2022_1t_MA.zip
+1a946477b1c5f77042ac942c839e6678  bu_imgbu_logjez_rdv_vscmr_2022_1t_MG.zip
+9287c89d2a558b784c296cb5854f959b  bu_imgbu_logjez_rdv_vscmr_2022_1t_MS.zip
+9f68d801b1df5e3f6dd6b76c1e1e8530  bu_imgbu_logjez_rdv_vscmr_2022_1t_MT.zip
+b4201f0bc9a8523446139fac6586812a  bu_imgbu_logjez_rdv_vscmr_2022_1t_PA.zip
+b4663673177bc2436e32d61bf3e557af  bu_imgbu_logjez_rdv_vscmr_2022_1t_PB.zip
+466d7d43c395aba22d460be9ae2fc304  bu_imgbu_logjez_rdv_vscmr_2022_1t_PE.zip
+af34d94e94c5ce40b6b3fbea9687a6e3  bu_imgbu_logjez_rdv_vscmr_2022_1t_PI.zip
+702bfb5f9a8719aa2de0294129530d46  bu_imgbu_logjez_rdv_vscmr_2022_1t_PR.zip
+29acdfefc02458a1786b5404a2acbfa8  bu_imgbu_logjez_rdv_vscmr_2022_1t_RJ.zip
+e349f5c71da64db5dc87dfc8da664c26  bu_imgbu_logjez_rdv_vscmr_2022_1t_RN.zip
+1cc4c39323951d70ad48ca0a966aa94d  bu_imgbu_logjez_rdv_vscmr_2022_1t_RO.zip
+4286e4251d6e7c737415c949e8f67162  bu_imgbu_logjez_rdv_vscmr_2022_1t_RR.zip
+bfebcdbd655d72424a17c3ed66de0921  bu_imgbu_logjez_rdv_vscmr_2022_1t_RS.zip
+e24d0ab920bf53c28459d7fe3ec1a988  bu_imgbu_logjez_rdv_vscmr_2022_1t_SC.zip
+bcea1f6c76a9ee52331b0367c917629c  bu_imgbu_logjez_rdv_vscmr_2022_1t_SE.zip
+e47ae0ddae4c60143db61635f4c94d3e  bu_imgbu_logjez_rdv_vscmr_2022_1t_SP.zip
+1db73cd49036373a463901303b2a7d3c  bu_imgbu_logjez_rdv_vscmr_2022_1t_TO.zip
+3d3f7c309381dffa296e2df842914ea9  bu_imgbu_logjez_rdv_vscmr_2022_1t_ZZ.zip
+
+
+TAMANHO TOTAL
+
+2o TURNO: 87.0G
+104M 2022-11-02 17:48:37 bu_imgbu_logjez_rdv_vscmr_2022_2t_ZZ.zip
+205M 2022-11-02 17:45:56 bu_imgbu_logjez_rdv_vscmr_2022_2t_RR.zip
+304M 2022-11-02 17:41:25 bu_imgbu_logjez_rdv_vscmr_2022_2t_AP.zip
+350M 2022-11-02 17:41:12 bu_imgbu_logjez_rdv_vscmr_2022_2t_AC.zip
+687M 2022-11-02 17:48:32 bu_imgbu_logjez_rdv_vscmr_2022_2t_TO.zip
+754M 2022-11-02 17:45:55 bu_imgbu_logjez_rdv_vscmr_2022_2t_RO.zip
+1.1G 2022-11-02 17:46:45 bu_imgbu_logjez_rdv_vscmr_2022_2t_SE.zip
+1.2G 2022-11-02 17:43:50 bu_imgbu_logjez_rdv_vscmr_2022_2t_MS.zip
+1.2G 2022-11-02 17:48:36 bu_imgbu_logjez_rdv_vscmr_2022_2t_DF.zip
+1.4G 2022-11-02 17:43:56 bu_imgbu_logjez_rdv_vscmr_2022_2t_MT.zip
+1.4G 2022-11-02 17:41:16 bu_imgbu_logjez_rdv_vscmr_2022_2t_AL.zip
+1.5G 2022-11-02 17:42:30 bu_imgbu_logjez_rdv_vscmr_2022_2t_ES.zip
+1.5G 2022-11-02 17:41:23 bu_imgbu_logjez_rdv_vscmr_2022_2t_AM.zip
+1.5G 2022-11-02 17:45:51 bu_imgbu_logjez_rdv_vscmr_2022_2t_RN.zip
+1.7G 2022-11-02 17:44:47 bu_imgbu_logjez_rdv_vscmr_2022_2t_PI.zip
+1.9G 2022-11-02 17:44:19 bu_imgbu_logjez_rdv_vscmr_2022_2t_PB.zip
+2.8G 2022-11-02 17:42:42 bu_imgbu_logjez_rdv_vscmr_2022_2t_GO.zip
+2.9G 2022-11-02 17:42:56 bu_imgbu_logjez_rdv_vscmr_2022_2t_MA.zip
+3.2G 2022-11-02 17:46:39 bu_imgbu_logjez_rdv_vscmr_2022_2t_SC.zip
+3.3G 2022-11-02 17:44:11 bu_imgbu_logjez_rdv_vscmr_2022_2t_PA.zip
+4.1G 2022-11-02 17:44:39 bu_imgbu_logjez_rdv_vscmr_2022_2t_PE.zip
+4.2G 2022-11-02 17:42:22 bu_imgbu_logjez_rdv_vscmr_2022_2t_CE.zip
+4.8G 2022-11-02 17:45:11 bu_imgbu_logjez_rdv_vscmr_2022_2t_PR.zip
+5.2G 2022-11-02 17:46:26 bu_imgbu_logjez_rdv_vscmr_2022_2t_RS.zip
+6.6G 2022-11-02 17:45:45 bu_imgbu_logjez_rdv_vscmr_2022_2t_RJ.zip
+6.8G 2022-11-02 17:42:05 bu_imgbu_logjez_rdv_vscmr_2022_2t_BA.zip
+8.7G 2022-11-02 17:43:43 bu_imgbu_logjez_rdv_vscmr_2022_2t_MG.zip
+ 19G 2022-11-02 17:48:28 bu_imgbu_logjez_rdv_vscmr_2022_2t_SP.zip
+
+1o TURNO: 70.0G
+ 77M 2022-10-07 01:23:37 bu_imgbu_logjez_rdv_vscmr_2022_1t_ZZ.zip
+178M 2022-10-06 21:55:01 bu_imgbu_logjez_rdv_vscmr_2022_1t_RR.zip
+261M 2022-10-06 16:04:55 bu_imgbu_logjez_rdv_vscmr_2022_1t_AP.zip
+297M 2022-10-06 16:00:41 bu_imgbu_logjez_rdv_vscmr_2022_1t_AC.zip
+559M 2022-10-07 01:14:47 bu_imgbu_logjez_rdv_vscmr_2022_1t_TO.zip
+597M 2022-10-06 21:53:35 bu_imgbu_logjez_rdv_vscmr_2022_1t_RO.zip
+817M 2022-10-06 22:56:16 bu_imgbu_logjez_rdv_vscmr_2022_1t_SE.zip
+980M 2022-10-06 19:06:47 bu_imgbu_logjez_rdv_vscmr_2022_1t_MS.zip
+1.1G 2022-10-07 01:22:59 bu_imgbu_logjez_rdv_vscmr_2022_1t_DF.zip
+1.1G 2022-10-06 16:01:58 bu_imgbu_logjez_rdv_vscmr_2022_1t_AL.zip
+1.1G 2022-10-06 19:15:44 bu_imgbu_logjez_rdv_vscmr_2022_1t_MT.zip
+1.2G 2022-10-06 16:02:59 bu_imgbu_logjez_rdv_vscmr_2022_1t_AM.zip
+1.2G 2022-10-06 21:48:45 bu_imgbu_logjez_rdv_vscmr_2022_1t_RN.zip
+1.2G 2022-10-06 17:20:18 bu_imgbu_logjez_rdv_vscmr_2022_1t_ES.zip
+1.3G 2022-10-06 20:25:07 bu_imgbu_logjez_rdv_vscmr_2022_1t_PI.zip
+1.5G 2022-10-06 19:48:55 bu_imgbu_logjez_rdv_vscmr_2022_1t_PB.zip
+2.2G 2022-10-06 17:37:49 bu_imgbu_logjez_rdv_vscmr_2022_1t_GO.zip
+2.4G 2022-10-06 17:56:58 bu_imgbu_logjez_rdv_vscmr_2022_1t_MA.zip
+2.5G 2022-10-06 22:49:23 bu_imgbu_logjez_rdv_vscmr_2022_1t_SC.zip
+2.7G 2022-10-06 19:37:25 bu_imgbu_logjez_rdv_vscmr_2022_1t_PA.zip
+3.2G 2022-10-06 20:14:29 bu_imgbu_logjez_rdv_vscmr_2022_1t_PE.zip
+3.3G 2022-10-06 17:10:26 bu_imgbu_logjez_rdv_vscmr_2022_1t_CE.zip
+3.9G 2022-10-06 20:55:22 bu_imgbu_logjez_rdv_vscmr_2022_1t_PR.zip
+4.1G 2022-10-06 22:28:17 bu_imgbu_logjez_rdv_vscmr_2022_1t_RS.zip
+5.3G 2022-10-06 16:45:11 bu_imgbu_logjez_rdv_vscmr_2022_1t_BA.zip
+5.5G 2022-10-06 21:39:18 bu_imgbu_logjez_rdv_vscmr_2022_1t_RJ.zip
+7.2G 2022-10-06 18:58:37 bu_imgbu_logjez_rdv_vscmr_2022_1t_MG.zip
+ 16G 2022-10-07 01:10:11 bu_imgbu_logjez_rdv_vscmr_2022_1t_SP.zip
+
+
+TAMANHO TOTAL EM BYTES: 164597768
+
+2o TURNO: 91220348
+358248   366838382 2022-11-02 17:41:12 bu_imgbu_logjez_rdv_vscmr_2022_2t_AC.zip
+1395364  1428848316 2022-11-02 17:41:16 bu_imgbu_logjez_rdv_vscmr_2022_2t_AL.zip
+1510108  1546345029 2022-11-02 17:41:23 bu_imgbu_logjez_rdv_vscmr_2022_2t_AM.zip
+310516   317960943 2022-11-02 17:41:25 bu_imgbu_logjez_rdv_vscmr_2022_2t_AP.zip
+7120980  7291826966 2022-11-02 17:42:05 bu_imgbu_logjez_rdv_vscmr_2022_2t_BA.zip
+4317184  4420789575 2022-11-02 17:42:22 bu_imgbu_logjez_rdv_vscmr_2022_2t_CE.zip
+1503656  1539711010 2022-11-02 17:42:30 bu_imgbu_logjez_rdv_vscmr_2022_2t_ES.zip
+2844368  2912612557 2022-11-02 17:42:42 bu_imgbu_logjez_rdv_vscmr_2022_2t_GO.zip
+3012060  3084344966 2022-11-02 17:42:56 bu_imgbu_logjez_rdv_vscmr_2022_2t_MA.zip
+9053476  9270602346 2022-11-02 17:43:43 bu_imgbu_logjez_rdv_vscmr_2022_2t_MG.zip
+1249260  1279234899 2022-11-02 17:43:50 bu_imgbu_logjez_rdv_vscmr_2022_2t_MS.zip
+1372396  1405328655 2022-11-02 17:43:56 bu_imgbu_logjez_rdv_vscmr_2022_2t_MT.zip
+3458668  3541640253 2022-11-02 17:44:11 bu_imgbu_logjez_rdv_vscmr_2022_2t_PA.zip
+1931848  1978205566 2022-11-02 17:44:19 bu_imgbu_logjez_rdv_vscmr_2022_2t_PB.zip
+4194364  4295021492 2022-11-02 17:44:39 bu_imgbu_logjez_rdv_vscmr_2022_2t_PE.zip
+1682164  1722528696 2022-11-02 17:44:47 bu_imgbu_logjez_rdv_vscmr_2022_2t_PI.zip
+4985340  5104981100 2022-11-02 17:45:11 bu_imgbu_logjez_rdv_vscmr_2022_2t_PR.zip
+6856132  7020672778 2022-11-02 17:45:45 bu_imgbu_logjez_rdv_vscmr_2022_2t_RJ.zip
+1563128  1600633341 2022-11-02 17:45:51 bu_imgbu_logjez_rdv_vscmr_2022_2t_RN.zip
+772012   790535121 2022-11-02 17:45:55 bu_imgbu_logjez_rdv_vscmr_2022_2t_RO.zip
+209772   214806129 2022-11-02 17:45:56 bu_imgbu_logjez_rdv_vscmr_2022_2t_RR.zip
+5385568  5514814522 2022-11-02 17:46:26 bu_imgbu_logjez_rdv_vscmr_2022_2t_RS.zip
+3303260  3382518530 2022-11-02 17:46:39 bu_imgbu_logjez_rdv_vscmr_2022_2t_SC.zip
+1079068  1104959722 2022-11-02 17:46:45 bu_imgbu_logjez_rdv_vscmr_2022_2t_SE.zip
+19689200 20161724599 2022-11-02 17:48:28 bu_imgbu_logjez_rdv_vscmr_2022_2t_SP.zip
+703420   720297733 2022-11-02 17:48:32 bu_imgbu_logjez_rdv_vscmr_2022_2t_TO.zip
+1251812  1281847489 2022-11-02 17:48:36 bu_imgbu_logjez_rdv_vscmr_2022_2t_DF.zip
+105936   108474703 2022-11-02 17:48:37 bu_imgbu_logjez_rdv_vscmr_2022_2t_ZZ.zip
+
+
+1o TURNO: 73377420
+303708   310996888 2022-10-06 16:00:41 bu_imgbu_logjez_rdv_vscmr_2022_1t_AC.zip
+1059716  1085149042 2022-10-06 16:01:58 bu_imgbu_logjez_rdv_vscmr_2022_1t_AL.zip
+1186768  1215249765 2022-10-06 16:02:59 bu_imgbu_logjez_rdv_vscmr_2022_1t_AM.zip
+266568   272963840 2022-10-06 16:04:55 bu_imgbu_logjez_rdv_vscmr_2022_1t_AP.zip
+5507588  5639766364 2022-10-06 16:45:11 bu_imgbu_logjez_rdv_vscmr_2022_1t_BA.zip
+3453436  3536315781 2022-10-06 17:10:26 bu_imgbu_logjez_rdv_vscmr_2022_1t_CE.zip
+1236604  1266279072 2022-10-06 17:20:18 bu_imgbu_logjez_rdv_vscmr_2022_1t_ES.zip
+2298180  2353333043 2022-10-06 17:37:49 bu_imgbu_logjez_rdv_vscmr_2022_1t_GO.zip
+2427340  2485593883 2022-10-06 17:56:58 bu_imgbu_logjez_rdv_vscmr_2022_1t_MA.zip
+7460864  7639923232 2022-10-06 18:58:37 bu_imgbu_logjez_rdv_vscmr_2022_1t_MG.zip
+1002700  1026760783 2022-10-06 19:06:47 bu_imgbu_logjez_rdv_vscmr_2022_1t_MS.zip
+1103456  1129937176 2022-10-06 19:15:44 bu_imgbu_logjez_rdv_vscmr_2022_1t_MT.zip
+2790772  2857749950 2022-10-06 19:37:25 bu_imgbu_logjez_rdv_vscmr_2022_1t_PA.zip
+1484844  1520479789 2022-10-06 19:48:55 bu_imgbu_logjez_rdv_vscmr_2022_1t_PB.zip
+3279052  3357746046 2022-10-06 20:14:29 bu_imgbu_logjez_rdv_vscmr_2022_1t_PE.zip
+1326264  1358091517 2022-10-06 20:25:07 bu_imgbu_logjez_rdv_vscmr_2022_1t_PI.zip
+4022556  4119095578 2022-10-06 20:55:22 bu_imgbu_logjez_rdv_vscmr_2022_1t_PR.zip
+5690348  5826912793 2022-10-06 21:39:18 bu_imgbu_logjez_rdv_vscmr_2022_1t_RJ.zip
+1224508  1253894657 2022-10-06 21:48:45 bu_imgbu_logjez_rdv_vscmr_2022_1t_RN.zip
+611236   625901627 2022-10-06 21:53:35 bu_imgbu_logjez_rdv_vscmr_2022_1t_RO.zip
+182056   186424685 2022-10-06 21:55:01 bu_imgbu_logjez_rdv_vscmr_2022_1t_RR.zip
+4233972  4335586129 2022-10-06 22:28:17 bu_imgbu_logjez_rdv_vscmr_2022_1t_RS.zip
+2569968  2631645506 2022-10-06 22:49:23 bu_imgbu_logjez_rdv_vscmr_2022_1t_SC.zip
+835968   856029051 2022-10-06 22:56:16 bu_imgbu_logjez_rdv_vscmr_2022_1t_SE.zip
+16121144 16508051055 2022-10-07 01:10:11 bu_imgbu_logjez_rdv_vscmr_2022_1t_SP.zip
+572076   585805351 2022-10-07 01:14:47 bu_imgbu_logjez_rdv_vscmr_2022_1t_TO.zip
+1049084  1074259776 2022-10-07 01:22:59 bu_imgbu_logjez_rdv_vscmr_2022_1t_DF.zip
+78064    79934034 2022-10-07 01:23:37 bu_imgbu_logjez_rdv_vscmr_2022_1t_ZZ.zip
+
+
+
+gid    | arquivo do site do TSE
+======+====+===========+==========================
+74ae65 | bu_imgbu_logjez_rdv_vscmr_2022_1t_SE.zip
+4f5d6f | bu_imgbu_logjez_rdv_vscmr_2022_1t_BA.zip
+2a7552 | bu_imgbu_logjez_rdv_vscmr_2022_1t_CE.zip
+b689d9 | bu_imgbu_logjez_rdv_vscmr_2022_1t_ES.zip
+942a9b | bu_imgbu_logjez_rdv_vscmr_2022_1t_MT.zip
+a6d24c | bu_imgbu_logjez_rdv_vscmr_2022_1t_PI.zip
+d3f911 | bu_imgbu_logjez_rdv_vscmr_2022_1t_RJ.zip
+3dd29e | bu_imgbu_logjez_rdv_vscmr_2022_1t_RO.zip
+f579a5 | bu_imgbu_logjez_rdv_vscmr_2022_1t_SC.zip
+a875f1 | bu_imgbu_logjez_rdv_vscmr_2022_1t_SP.zip
+d6512a | bu_imgbu_logjez_rdv_vscmr_2022_1t_TO.zip
+55c3e3 | bu_imgbu_logjez_rdv_vscmr_2022_1t_ZZ.zip
+6dc532 | bu_imgbu_logjez_rdv_vscmr_2022_1t_AP.zip
+44becf | bu_imgbu_logjez_rdv_vscmr_2022_1t_DF.zip
+b5e9eb | bu_imgbu_logjez_rdv_vscmr_2022_1t_GO.zip
+28a0e3 | bu_imgbu_logjez_rdv_vscmr_2022_1t_MA.zip
+d79579 | bu_imgbu_logjez_rdv_vscmr_2022_1t_PB.zip
+1d3f2e | bu_imgbu_logjez_rdv_vscmr_2022_1t_PE.zip
+a34833 | bu_imgbu_logjez_rdv_vscmr_2022_1t_PR.zip
+24e89a | bu_imgbu_logjez_rdv_vscmr_2022_1t_RR.zip
+8c62f1 | bu_imgbu_logjez_rdv_vscmr_2022_2t_AC.zip
+0880dd | bu_imgbu_logjez_rdv_vscmr_2022_1t_AC.zip
+98fad1 | bu_imgbu_logjez_rdv_vscmr_2022_1t_AM.zip
+b1467e | bu_imgbu_logjez_rdv_vscmr_2022_1t_MS.zip
+0b5c5c | bu_imgbu_logjez_rdv_vscmr_2022_1t_PA.zip
+98f80a | bu_imgbu_logjez_rdv_vscmr_2022_1t_RN.zip
+ddc5c1 | bu_imgbu_logjez_rdv_vscmr_2022_2t_AP.zip
+eb8b7c | bu_imgbu_logjez_rdv_vscmr_2022_2t_MS.zip
+0159ae | bu_imgbu_logjez_rdv_vscmr_2022_2t_BA.zip
+3fe5ba | bu_imgbu_logjez_rdv_vscmr_2022_2t_GO.zip
+eb1f72 | bu_imgbu_logjez_rdv_vscmr_2022_2t_MT.zip
+7b661b | bu_imgbu_logjez_rdv_vscmr_2022_2t_PA.zip
+e3ecec | bu_imgbu_logjez_rdv_vscmr_2022_2t_PB.zip
+abdb60 | bu_imgbu_logjez_rdv_vscmr_2022_2t_PE.zip
+e4d541 | bu_imgbu_logjez_rdv_vscmr_2022_2t_CE.zip
+dab5a3 | bu_imgbu_logjez_rdv_vscmr_2022_2t_MA.zip
+3a4ab6 | bu_imgbu_logjez_rdv_vscmr_2022_2t_MG.zip
+31335a | bu_imgbu_logjez_rdv_vscmr_2022_2t_RO.zip
+3b3803 | bu_imgbu_logjez_rdv_vscmr_2022_2t_SC.zip
+3c0671 | bu_imgbu_logjez_rdv_vscmr_2022_2t_PI.zip
+4385e5 | bu_imgbu_logjez_rdv_vscmr_2022_2t_RJ.zip
+91b6b9 | bu_imgbu_logjez_rdv_vscmr_2022_2t_RN.zip
+29133c | bu_imgbu_logjez_rdv_vscmr_2022_2t_RR.zip
+7d32f3 | bu_imgbu_logjez_rdv_vscmr_2022_2t_SE.zip
+bdd31f | bu_imgbu_logjez_rdv_vscmr_2022_2t_SP.zip
+4178aa | bu_imgbu_logjez_rdv_vscmr_2022_2t_ZZ.zip
+f02b78 | bu_imgbu_logjez_rdv_vscmr_2022_1t_RS.zip
+0d6d31 | bu_imgbu_logjez_rdv_vscmr_2022_2t_AM.zip
+0c6138 | bu_imgbu_logjez_rdv_vscmr_2022_2t_PR.zip
+3b16b7 | bu_imgbu_logjez_rdv_vscmr_2022_2t_RS.zip
+4623cb | bu_imgbu_logjez_rdv_vscmr_2022_2t_TO.zip
+e87601 | bu_imgbu_logjez_rdv_vscmr_2022_2t_AL.zip
+7e9f7d | bu_imgbu_logjez_rdv_vscmr_2022_1t_AL.zip
+f2151a | bu_imgbu_logjez_rdv_vscmr_2022_1t_MG.zip
+2c2a87 | bu_imgbu_logjez_rdv_vscmr_2022_2t_ES.zip
+5590b9 | bu_imgbu_logjez_rdv_vscmr_2022_2t_DF.zip
+
+
+
+
 
