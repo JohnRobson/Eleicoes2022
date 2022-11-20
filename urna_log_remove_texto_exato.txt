@@ -1,0 +1,81 @@
+Início das operações do logd
+Iniciando aplicação - Oficial - 1º turno
+Versão da aplicação: 8.26.0.0 - Onça-pintada
+Urna operando com rede elétrica
+Bateria interna com carga plena
+Verificação de assinatura de aplicação por etapa [1] - [/bin/avbin.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [2] - [/uenux/bin/avusrbin.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [3] - [/uenux/lib/avusrlib.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [4] - [/uenux/lib/avusrlibue2015.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [5] - [/boot/boot/avboot.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [6] - [/boot/boot/avbootcfg.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [7] - [/etc/avetc.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [8] - [/lib/avlib.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [9] - [/lib/modules/avmod.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [10] - [/lib/modules/ue2015/avmodue2015.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [11] - [/lib/plugins/generic/avlibqtgeneric.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [12] - [/lib/plugins/imageformats/avlibqtimageformats.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [13] - [/lib/plugins/platforms/avlibqtplatforms.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [14] - [/uenux/lib/avusrlibue2013.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [15] - [/uenux/lib/avusrlibue2006.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [16] - [/uenux/lib/avusrlib.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [17] - [/uenux/lib/avusrlibue2009.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [18] - [/uenux/lib/avusrlibue2010.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [19] - [/uenux/lib/avusrlibue2015.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [20] - [/uenux/lib/avusrlibue2020.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [21] - [/uenux/lib/avusrlibue2011.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [22] - [/uenux/lib/avusrlibue2008.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [23] - [/lib/modules/avmod.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [24] - [/lib/modules/ue2006/avmodue2006.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [25] - [/lib/modules/ue2008/avmodue2008.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [26] - [/lib/modules/ue2009/avmodue2009.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [27] - [/lib/modules/ue2010/avmodue2010.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [28] - [/lib/modules/ue2011/avmodue2011.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [29] - [/lib/modules/ue2013/avmodue2013.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [30] - [/lib/modules/ue2015/avmodue2015.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [31] - [/lib/modules/ue2020/avmodue2020.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [32] - [/lib/avlibue2009.vst] - [SUCESSO]
+Verificação de assinatura de aplicação por etapa [33] - [/dsk/fe/estatico/chave/avusrchave.vst] - [SUCESSO]
+Verificação de assinatura de dado por etapa [1] - [/dsk/fe/estatico/o00546ro-ce.vsc] - [SUCESSO]
+Verificação de assinatura de dado por etapa [2] - [/dsk/fe/estatico/o00546ro-ce.vsc] - [SUCESSO]
+Verificação de assinatura de dado por etapa [3] - [/dsk/fe/estatico/o00544ro-ce.vsc] - [SUCESSO]
+Verificação de assinatura de dado por etapa [4] - [/dsk/fe/estatico/o00544ro-ce.vsc] - [SUCESSO]
+Verificação de assinatura de dado por etapa [5] - [/dsk/fe/estatico/jez/avgm.vsc] - [SUCESSO]
+Verificação de assinatura de dado por etapa [6] - [/dsk/fe/estatico/o00546ro00000-ca.vsc] - [SUCESSO]
+Verificação de assinatura de dado por etapa [7] - [/dsk/fe/estatico/o00544br00000-ca.vsc] - [SUCESSO]
+Verificação de assinatura de dado por etapa [8] - [/dsk/fe/estatico/jez/vota_apl.vst] - [SUCESSO]
+Verificação de assinatura de dado por etapa [9] - [/dsk/fe/estatico/jez/vota_bin.vst] - [SUCESSO]
+Verificação de assinatura de dado por etapa [10] - [/dsk/fe/estatico/jez/vota_ofi.vst] - [SUCESSO]
+Verificação de assinatura de dado por etapa [11] - [/dsk/fe/estatico/jez/avpart.vst] - [SUCESSO]
+Data e hora solicitadas
+Início do particionamento da MI
+Particionamento realizado com sucesso
+Início da formatação
+Formatação realizada com sucesso
+Resultado da verificação da mídia interna: NORMAL
+Início da montagem dos dados
+Montagem realizada com sucesso
+Identificação de assinatura do arquivo UENUX CFG
+Estrutura da mídia criada
+Data e hora atualizada
+Imprimindo extrato de carga
+Confirmação do extrato de carga
+Iniciando cópia de Log da ME para MI
+Cópia de Log da ME para MI realizada com sucesso.
+Identificação de assinatura do arquivo Tab. Corresp.
+Identificação de assinatura do arquivo EG Geral MI
+Identificação de assinatura do arquivo EG GAP 1 MI
+Identificação de assinatura do arquivo EG VOTA MI
+Identificação de assinatura do arquivo EG SA MI
+Identificação de assinatura das chaves do QR code
+Urna carregada com sucesso
+Finalização de aplicativo
+Desligando a urna
+Fechando o arquivo de Log
+Início das operações do logd
+Urna ligada em 22/09/2022 às 14:50:58
+Estrutura de diretórios da ME criada com sucesso
+Início de cópia do log da MI para ME
+Final de cópia do log da MI para ME
+Resultado da verificação da mídia externa estática : NORMAL
+Resultado da verificação da mídia externa dinâmica : NORMAL

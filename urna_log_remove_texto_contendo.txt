@@ -1,0 +1,15 @@
+Urna ligada em 
+Tamanho da mídia interna: 
+Tamanho da memória: 
+Data e hora que foi digitada pelo operador: 
+Seção informada pelo operador: 
+Identificador da mídia de carga: 
+Mídia de carga gerada pelo computador: 
+Data e hora da geração da mídia de carga: 
+Mídia de carga gerada pelo usuário: 
+Município: 
+Zona Eleitoral: 
+Local de Votação: 
+Seção Eleitoral: 
+Código de carga 
+Tamanho da partição dinâmica de dados da MI: 
