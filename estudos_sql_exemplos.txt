@@ -1,0 +1,4 @@
+# SQL
+
+SELECT SUM(vPresA22), SUM(vPresB13), SUM(vPresNulo), SUM(vPresBranco), SUM(vGovA), SUM(vGovB), SUM(vGovNulo), SUM(vGovBranco) FROM urnas;
+

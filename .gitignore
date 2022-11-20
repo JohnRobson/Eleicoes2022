@@ -129,5 +129,15 @@ dmypy.json
 .pyre/
 
 
+urnas.sqlite3
 urnas_2022.sqlite3
+urnas_light.sqlite3
+urnas_test.sqlite3
+
+Banco_de_Dados_Compactado.7z
+
+estudos_tempo_votacao.ipynb
+estudos_votos_presidente.ipynb
+src_processa_dados.py
+testes.py
 
