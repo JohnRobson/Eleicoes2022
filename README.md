@@ -14,23 +14,11 @@ https://github.com/JohnRobson/Eleicoes2022
 
 ################################################################
 
-> DOWNLOAD do Banco de Dados:
->
+### DOWNLOAD do Banco de Dados com o 1° e 2° turnos (944.051 registros):
+
 > https://mega.nz/file/AA1xFIba#qtNIePEohlBJW1ymFcoY1M3K1ZQ02z2wVy1s3Qaubo8
 
-> DOWNLOAD dos Arquivos de Log e BU do 1o Turno:
->
-> LOG: https://mega.nz/file/UA9FASzJ#SzpsO5pSbR6Wp4tVpB3CqTgO0PAyGtCNxMCaT4L4G2A
->
-> BU: https://mega.nz/file/FZMl2KQC#jX6mF7dzLuari_VLNTXXwoRX4ONk6K443yKt2wRWTX4
-
-> DOWNLOAD dos Arquivos de Log e BU do 2o Turno:
->
-> LOG: https://mega.nz/file/pVdWwAiD#ABEY6zOvmzUNRkY9ydhscFLo0FLbB35Yf-QyWViPZCY
->
-> BU: https://mega.nz/file/RRlgUKCB#nKi9Gk0ci-Qw673p9SwcRMu2bFngsAx2gAUIwE2130Y
-
-Este aquivo tem um banco de dados SQLite com o Registro de Todas as Urnas (944.051) com os Votos para Presidente e Governador no 1 e 2 Turnos nas eleições de 2022.
+Este aquivo tem um banco de dados SQLite com o Registro de Todas as Urnas (944.051) com os Votos para Presidente e Governador no 1° e 2° Turnos nas eleições de 2022.
 
 É uma ótima base de dados para pesquisas facilmente exportável para todos os tipos de softwares de análsies.
 
@@ -53,6 +41,13 @@ jaVotou = quando o mesário tenta habilitar alguém que já tinha votado
 (provavelmente alguém votou no lugar daquela pessoa e mais tarde ela apareceu para votar)
 ````
 
+### Algumas pesquisas de exemplo que podem ser feitas no Banco de Dados.
+
+Conta o número de registros no Banco de Dados:
+````{verbatim, lang = "markdown"}
+SELECT COUNT(id) FROM urnas;
+````
+
 Resultado dos 2 Turnos:
 ````{verbatim, lang = "markdown"}
 SELECT turno, SUM(vPresA22) AS "Bolsonaro", SUM(vPresB13) AS "Lula", SUM(vPresNulo) AS "pNulo", SUM(vPresBranco) AS "pBranco" FROM urnas GROUP BY turno ORDER BY turno
@@ -73,12 +68,17 @@ Percentual de comparecimento, ou seja a razão entre o número de eleitores que 
 SELECT turno, regiao, estado, municipio, SUM(qEleitAptos) AS Eleitores, SUM(qComparecimento) AS Votos, CAST(SUM(qComparecimento) AS FLOAT) / CAST(SUM(qEleitAptos) AS FLOAT) AS Comparecimento FROM urnas WHERE turno=2 GROUP BY municipio ORDER BY Comparecimento DESC;
 ````
 
-Fontes usadas para gerar o Banco de Dados, Logs de Urna e Boletina de Urna são todas do próprio site do TSE:
+Seções com maior número de tentativa de votos para títulos que "já tinham votado".
+````{verbatim, lang = "markdown"}
+SELECT turno, regiao, estado, municipio, zona, local, secao, qComparecimento, jaVotou FROM urnas WHERE turno=2 ORDER BY jaVotou DESC;
+````
+
+### Fontes usadas para gerar o Banco de Dados, Logs de Urna e Boletina de Urna
+
 * https://resultados.tse.jus.br/oficial/app/index.html#/eleicao/resultados
 * https://dadosabertos.tse.jus.br/dataset/resultados-2022-arquivos-transmitidos-para-totalizacao
 
-
-Lista dos Estados e a Seleção de 2 (dois) governadores para registro dos dados:
+### Lista dos Estados e a Seleção de 2 (dois) Governadores para registro dos dados:
 
 ````{verbatim, lang = "markdown"}
 {
@@ -121,3 +121,16 @@ em poucos estados esse alinhamento era neutro.
 Mas a Regra é o vGov"A" é mais alinhado com o Bolsonaro e o vGov"B" com o Lula,
 o que torna mais fácil as alálises para comparar se o Presidente Bolsonaro teve
 pelo menos tantos votos quanto seu candidato a governador mais alinhado vGovA.
+
+### Download de Outros Arquivos Importantes para as Análises
+
+#### DOWNLOAD de Todos os Arquivos de Log e BU do 1° Turno:
+> LOGs: https://mega.nz/file/UA9FASzJ#SzpsO5pSbR6Wp4tVpB3CqTgO0PAyGtCNxMCaT4L4G2A
+>
+> BUs: https://mega.nz/file/FZMl2KQC#jX6mF7dzLuari_VLNTXXwoRX4ONk6K443yKt2wRWTX4
+
+#### DOWNLOAD dos Arquivos de Log e BU do 2° Turno:
+
+> LOGs: https://mega.nz/file/pVdWwAiD#ABEY6zOvmzUNRkY9ydhscFLo0FLbB35Yf-QyWViPZCY
+>
+> BUs: https://mega.nz/file/RRlgUKCB#nKi9Gk0ci-Qw673p9SwcRMu2bFngsAx2gAUIwE2130Y
