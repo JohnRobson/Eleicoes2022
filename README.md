@@ -63,9 +63,14 @@ Resultado dos 2 Turnos para cada estado:
 SELECT turno, regiao, estado, SUM(vPresA22) AS "Bolsonaro", SUM(vPresB13) AS "Lula", SUM(vPresNulo) AS "pNulo", SUM(vPresBranco) AS "pBranco", SUM(vGovA) AS "GovA", SUM(vGovB) AS "GovB", SUM(vGovNulo) AS "gNulo", SUM(vGovBranco) AS "gBranco" FROM urnas GROUP BY turno, estado ORDER BY turno, regiao, estado
 ````
 
-Total de votos de urnas e votos das urnas que fecharam 15 minutos após a abertura
+Total de votos de urnas e votos das urnas que fecharam 15 minutos após a o horário oficial de fechamento:
 ````{verbatim, lang = "markdown"}
 SELECT turno, count(id), sum(qComparecimento) FROM urnas WHERE datetime(dataHoraEncerramento) > datetime(dataHoraAbertura, '+09:15:00') GROUP BY turno;
+````
+
+Percentual de comparecimento, ou seja a razão entre o número de eleitores que votaram e os que estavam aptos:
+````{verbatim, lang = "markdown"}
+SELECT turno, regiao, estado, municipio, SUM(qEleitAptos) AS Eleitores, SUM(qComparecimento) AS Votos, CAST(SUM(qComparecimento) AS FLOAT) / CAST(SUM(qEleitAptos) AS FLOAT) AS Comparecimento FROM urnas WHERE turno=2 GROUP BY municipio ORDER BY Comparecimento DESC;
 ````
 
 Fontes usadas para gerar o Banco de Dados, Logs de Urna e Boletina de Urna são todas do próprio site do TSE:
