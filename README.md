@@ -8,13 +8,22 @@ Copyright (c) 2022 por John Robson <john.robson@msn.com> (PIX)
 
 Todo o Código fonte e demais arquivos estão sobre a Licença BSD 3 Clause.
 Modificações, Redistribuição, uso Comercial são permitidos, sempre informando
-esse aviso de direitos autorais.
+esse aviso de direitos autorais e o repositório oficial:
 
-Repositório oficial: https://github.com/JohnRobson/Eleicoes2022
+	https://github.com/JohnRobson/Eleicoes2022
 
 ################################################################
 
-> DOWNLOAD: https://mega.nz/file/AA1xFIba#qtNIePEohlBJW1ymFcoY1M3K1ZQ02z2wVy1s3Qaubo8
+> DOWNLOAD do Banco de Dados:
+https://mega.nz/file/AA1xFIba#qtNIePEohlBJW1ymFcoY1M3K1ZQ02z2wVy1s3Qaubo8
+
+> DOWNLOAD dos Arquivos de Log e BU do 1o Turno:
+LOG: https://mega.nz/file/UA9FASzJ#SzpsO5pSbR6Wp4tVpB3CqTgO0PAyGtCNxMCaT4L4G2A
+BU:
+
+> DOWNLOAD dos Arquivos de Log e BU do 2o Turno:
+LOG: https://mega.nz/file/pVdWwAiD#ABEY6zOvmzUNRkY9ydhscFLo0FLbB35Yf-QyWViPZCY
+BU: https://mega.nz/file/RRlgUKCB#nKi9Gk0ci-Qw673p9SwcRMu2bFngsAx2gAUIwE2130Y
 
 Este aquivo tem um banco de dados SQLite com o Registro de Todas as Urnas (944.051) com os Votos para Presidente e Governador no 1 e 2 Turnos nas eleições de 2022.
 
@@ -49,9 +58,17 @@ Resultado dos 2 Turnos para cada estado:
 SELECT turno, regiao, estado, SUM(vPresA22) AS "Bolsonaro", SUM(vPresB13) AS "Lula", SUM(vPresNulo) AS "pNulo", SUM(vPresBranco) AS "pBranco", SUM(vGovA) AS "GovA", SUM(vGovB) AS "GovB", SUM(vGovNulo) AS "gNulo", SUM(vGovBranco) AS "gBranco" FROM urnas GROUP BY turno, estado ORDER BY turno, regiao, estado
 ````
 
-Fontes:
+Total de votos de urnas e votos das urnas que fecharam 15 minutos após a abertura
+````{verbatim, lang = "markdown"}
+SELECT turno, count(id), sum(qComparecimento) FROM urnas WHERE datetime(dataHoraEncerramento) > datetime(dataHoraAbertura, '+09:15:00') GROUP BY turno;
+````
+
+Fontes usadas para gerar o Banco de Dados, Logs de Urna e Boletina de Urna são todas do próprio site do TSE:
+
 https://resultados.tse.jus.br/oficial/app/index.html#/eleicao/resultados
+
 https://dadosabertos.tse.jus.br/dataset/resultados-2022-arquivos-transmitidos-para-totalizacao
+
 
 Lista dos Estados e a Seleção de 2 (dois) governadores para registro dos dados:
 

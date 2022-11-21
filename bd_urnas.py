@@ -9,9 +9,9 @@ Copyright (c) 2022 por John Robson <john.robson@msn.com> (PIX)
 
 Todo o Código fonte e demais arquivos estão sobre a Licença BSD 3 Clause.
 Modificações, Redistribuição, uso Comercial são permitidos, sempre informando
-esse aviso de direitos autorais.
+esse aviso de direitos autorais e o repositório oficial:
 
-Repositório oficial: https://github.com/JohnRobson/Eleicoes2022
+	https://github.com/JohnRobson/Eleicoes2022
 
 ################################################################ '''
 
@@ -73,32 +73,30 @@ class Urnas(Base):
 
 	# Estudos
 	jaVotou = Column(SmallInteger) # quando o mesário tenta habilitar alguém que já tinha vitado (provavelmente o mesário votou no lugar daquela pessoa e mais tarde ela apareceu para votar)
-	vPresIntervalo = Column(String) # 100 menores intervalos de tempo em segundos entre 2 votos durante a votação
-	vConfPres1min = Column(String) # total votos confirmados para Presidente a cada 1 minuto
+
+	# vPresIntervalo = Column(String) # 100 menores intervalos de tempo em segundos entre 2 votos durante a votação
+	# vConfPres1min = Column(String) # total votos confirmados para Presidente a cada 1 minuto
 
 	# Mais Dados Gerais da Urna (Arquivo BU)
 	arquivoBU = Column(String(23), nullable=False)
 	# idEleicao = Column(SmallInteger, nullable=False)
 	dataHoraAbertura = Column(DateTime)
 	dataHoraEncerramento = Column(DateTime)
-	# dataGeracao = Column(DateTime, nullable=False)
-	# dataHoraEmissao = Column(DateTime, nullable=False)
-	# codigoCarga1 = Column(String(24), nullable=False)
-	# dataHoraCarga1 = Column(DateTime, nullable=False)
-	numeroInternoUrna1 = Column(Integer, nullable=False)
-	numeroSerieFC1 = Column(String(8), nullable=False)
-	# codigoCarga2 = Column(String(24), nullable=False)
-	# dataHoraCarga2 = Column(DateTime, nullable=False)
-	numeroInternoUrna2 = Column(Integer, nullable=False)
-	numeroSerieFC2 = Column(String(8), nullable=False)
-	numeroSerieFV = Column(String(8), nullable=False)
 
-	numeroInternoUrna2 = Column(Integer, nullable=False)
-	numeroSerieFC2 = Column(String(8), nullable=False)
-	numeroSerieFV = Column(String(8), nullable=False)
+	dataGeracao = Column(DateTime)
+	dataHoraEmissao = Column(DateTime)
+	codigoCarga1 = Column(String(24))
+	dataHoraCarga1 = Column(DateTime)
+	numeroInternoUrna1 = Column(Integer)
+	numeroSerieFC1 = Column(String(8))
+	codigoCarga2 = Column(String(24))
+	dataHoraCarga2 = Column(DateTime)
+	numeroInternoUrna2 = Column(Integer)
+	numeroSerieFC2 = Column(String(8))
+	numeroSerieFV = Column(String(8))
 
-	# tipoUrna = Column(String(12), nullable=False)
-	# versaoVotacao = Column(String, nullable=False)
+	# tipoUrna = Column(String(12))
+	# versaoVotacao = Column(String)
 
 	# Colunas Extras para uso Opcional e Testes
 	'''

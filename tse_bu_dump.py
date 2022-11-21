@@ -9,9 +9,9 @@ Copyright (c) 2022 por John Robson <john.robson@msn.com> (PIX)
 
 Todo o Código fonte e demais arquivos estão sobre a Licença BSD 3 Clause.
 Modificações, Redistribuição, uso Comercial são permitidos, sempre informando
-esse aviso de direitos autorais.
+esse aviso de direitos autorais e o repositório oficial:
 
-Repositório oficial: https://github.com/JohnRobson/Eleicoes2022
+	https://github.com/JohnRobson/Eleicoes2022
 
 ################################################################ '''
 
