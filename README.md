@@ -15,15 +15,20 @@ esse aviso de direitos autorais e o repositório oficial:
 ################################################################
 
 > DOWNLOAD do Banco de Dados:
-https://mega.nz/file/AA1xFIba#qtNIePEohlBJW1ymFcoY1M3K1ZQ02z2wVy1s3Qaubo8
+> 
+> https://mega.nz/file/AA1xFIba#qtNIePEohlBJW1ymFcoY1M3K1ZQ02z2wVy1s3Qaubo8
 
 > DOWNLOAD dos Arquivos de Log e BU do 1o Turno:
-LOG: https://mega.nz/file/UA9FASzJ#SzpsO5pSbR6Wp4tVpB3CqTgO0PAyGtCNxMCaT4L4G2A
-BU:
+> 
+> LOG: https://mega.nz/file/UA9FASzJ#SzpsO5pSbR6Wp4tVpB3CqTgO0PAyGtCNxMCaT4L4G2A
+> 
+> BU:
 
 > DOWNLOAD dos Arquivos de Log e BU do 2o Turno:
-LOG: https://mega.nz/file/pVdWwAiD#ABEY6zOvmzUNRkY9ydhscFLo0FLbB35Yf-QyWViPZCY
-BU: https://mega.nz/file/RRlgUKCB#nKi9Gk0ci-Qw673p9SwcRMu2bFngsAx2gAUIwE2130Y
+> 
+> LOG: https://mega.nz/file/pVdWwAiD#ABEY6zOvmzUNRkY9ydhscFLo0FLbB35Yf-QyWViPZCY
+> 
+> BU: https://mega.nz/file/RRlgUKCB#nKi9Gk0ci-Qw673p9SwcRMu2bFngsAx2gAUIwE2130Y
 
 Este aquivo tem um banco de dados SQLite com o Registro de Todas as Urnas (944.051) com os Votos para Presidente e Governador no 1 e 2 Turnos nas eleições de 2022.
 
