@@ -68,6 +68,11 @@ Percentual de comparecimento, ou seja a razão entre o número de eleitores que 
 SELECT turno, regiao, estado, municipio, SUM(qEleitAptos) AS Eleitores, SUM(qComparecimento) AS Votos, CAST(SUM(qComparecimento) AS FLOAT) / CAST(SUM(qEleitAptos) AS FLOAT) AS Comparecimento FROM urnas WHERE turno=2 GROUP BY municipio ORDER BY Comparecimento DESC;
 ````
 
+Total de Eleitores por Municipio:
+````{verbatim, lang = "markdown"}
+SELECT turno, regiao, estado, municipio, SUM(qEleitAptos) AS eleitores, SUM(qComparecimento) AS comparecimento FROM urnas WHERE turno=2 GROUP BY municipio ORDER BY eleitores DESC;
+````
+
 Seções com maior número de tentativa de votos para títulos que "já tinham votado".
 ````{verbatim, lang = "markdown"}
 SELECT turno, regiao, estado, municipio, zona, local, secao, qComparecimento, jaVotou FROM urnas WHERE turno=2 ORDER BY jaVotou DESC;
