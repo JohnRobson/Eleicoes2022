@@ -134,7 +134,7 @@ pelo menos tantos votos quanto seu candidato a governador mais alinhado vGovA.
 >
 > BUs: https://mega.nz/file/FZMl2KQC#jX6mF7dzLuari_VLNTXXwoRX4ONk6K443yKt2wRWTX4
 
-#### DOWNLOAD dos Arquivos de Log e BU do 2° Turno:
+#### DOWNLOAD de Todos os Arquivos de Log e BU do 2° Turno:
 
 > LOGs: https://mega.nz/file/pVdWwAiD#ABEY6zOvmzUNRkY9ydhscFLo0FLbB35Yf-QyWViPZCY
 >
