@@ -139,3 +139,5 @@ pelo menos tantos votos quanto seu candidato a governador mais alinhado vGovA.
 > LOGs: https://mega.nz/file/pVdWwAiD#ABEY6zOvmzUNRkY9ydhscFLo0FLbB35Yf-QyWViPZCY
 >
 > BUs: https://mega.nz/file/RRlgUKCB#nKi9Gk0ci-Qw673p9SwcRMu2bFngsAx2gAUIwE2130Y
+
+Os nomes dos arquivos de Log e BU usam o formato: {regiao}_{estado}_{municipio}_{zona}_{local}_{secao}

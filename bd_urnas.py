@@ -54,6 +54,9 @@ class Urnas(Base):
 	# Registro dos Votos na Urna Para Presidente, Governador, Brancos e Nulos
 	vPresA22 = Column(SmallInteger, default=0) # Votos Bolsonaro
 	vPresB13 = Column(SmallInteger, default=0) # Votos Lula
+	vPresC15 = Column(SmallInteger, default=0) # Votos Simone Tebet
+	vPresD12 = Column(SmallInteger, default=0) # Votos Ciro Gomes
+
 	vPresNulo = Column(SmallInteger, default=0)
 	vPresBranco = Column(SmallInteger, default=0)
 
@@ -69,7 +72,7 @@ class Urnas(Base):
 
 	# Dados do Arquivo de LOG da Urna # não usar "nullable=False"
 	vPresTotal = Column(SmallInteger) # conta os votos de presidente recebidos no log da urna, tem que bater com o BU
-	modelUrna = Column(String(6), default='UE0000') # 'UE0000' sem arquivo de log | 'UE1111' com arquivo de log, mas sem informar o modelo da urna
+	modelUrna = Column(String(6), default='UE0000') # "UE0000" BUs Sem Log da urna | "UE1111" BUs Com Log da urna que nao informa o modelo.
 
 	# Estudos
 	jaVotou = Column(SmallInteger) # quando o mesário tenta habilitar alguém que já tinha vitado (provavelmente o mesário votou no lugar daquela pessoa e mais tarde ela apareceu para votar)
@@ -82,20 +85,24 @@ class Urnas(Base):
 	# idEleicao = Column(SmallInteger, nullable=False)
 	dataHoraAbertura = Column(DateTime)
 	dataHoraEncerramento = Column(DateTime)
-
 	dataGeracao = Column(DateTime)
 	dataHoraEmissao = Column(DateTime)
-	codigoCarga1 = Column(String(24))
-	dataHoraCarga1 = Column(DateTime)
+
 	numeroInternoUrna1 = Column(Integer)
 	numeroSerieFC1 = Column(String(8))
-	codigoCarga2 = Column(String(24))
-	dataHoraCarga2 = Column(DateTime)
-	numeroInternoUrna2 = Column(Integer)
-	numeroSerieFC2 = Column(String(8))
+	dataHoraCarga1 = Column(DateTime)
+	codigoCarga1 = Column(String(24))
 	numeroSerieFV = Column(String(8))
 
-	# tipoUrna = Column(String(12))
+	tipoUrna = Column(String(12))
+
+	numeroInternoUrna2 = Column(Integer)
+	numeroSerieFC2 = Column(String(8))
+	dataHoraCarga2 = Column(DateTime)
+	codigoCarga2 = Column(String(24))
+
+	checks = Column(String(16)) # Estudo: verifica se existe no log da urna: (f'{urna.numeroInternoUrna1}'), (f'Identificador da mídia de carga: {urna.numeroSerieFC1.upper()}'), (f'Serial da MI copiada da MV da urna original: {urna.numeroSerieFV.upper()}') e mostra a quantidade de cada um, exemplo: "0,2,4" (numeroInternoUrna1 não existe, numeroSerieFC1 existem 2 ocorrências, e numeroSerieFV 4 ocorrências.
+
 	# versaoVotacao = Column(String)
 
 	# Colunas Extras para uso Opcional e Testes
