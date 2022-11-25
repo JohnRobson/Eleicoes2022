@@ -78,6 +78,11 @@ Seções com maior número de tentativa de votos para títulos que "já tinham v
 SELECT turno, regiao, estado, municipio, zona, local, secao, qComparecimento, jaVotou FROM urnas WHERE turno=2 ORDER BY jaVotou DESC;
 ````
 
+Maioria das urnas com mais votos por minutos dão grande vantagem para Lula
+````{verbatim, lang = "markdown"}
+SELECT dataHoraAbertura, dataHoraEncerramento, turno, regiao, estado, municipio, zona, local, secao, vPresA22, vPresB13, qComparecimento, CAST(vPresB13 AS FLOAT) / CAST(vPresA22 AS FLOAT) AS VantagemLula FROM urnas WHERE turno=2 AND qComparecimento>=500 ORDER BY VantagemLula DESC;
+````
+
 ### Fontes usadas para gerar o Banco de Dados, Logs de Urna e Boletina de Urna
 
 * https://resultados.tse.jus.br/oficial/app/index.html#/eleicao/resultados
