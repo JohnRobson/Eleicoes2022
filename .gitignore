@@ -136,8 +136,11 @@ urnas_test.sqlite3
 
 Banco_de_Dados_Compactado.7z
 
-estudos_tempo_votacao.ipynb
 src_processa_dados.py
+
+# estudos_tempo_votacao.ipynb
+estudos_votos_presidente.ipynb
+estudos_votos_presidente_tamanho_municipios.ipynb
 
 # tse_bu.asn1
 # tse_bu_dump.py

@@ -50,28 +50,34 @@ class Urnas(Base):
 	zona = Column(SmallInteger, nullable=False)
 	local = Column(SmallInteger, nullable=False)
 	secao = Column(SmallInteger, nullable=False)
+	qEleitAptos = Column(SmallInteger, nullable=False)
 
 	# Registro dos Votos na Urna Para Presidente, Governador, Brancos e Nulos
+
+	qPresComp = Column(SmallInteger, default=0) # Comparecimento
 	vPresA22 = Column(SmallInteger, default=0) # Votos Bolsonaro
 	vPresB13 = Column(SmallInteger, default=0) # Votos Lula
 	vPresC15 = Column(SmallInteger, default=0) # Votos Simone Tebet
 	vPresD12 = Column(SmallInteger, default=0) # Votos Ciro Gomes
-
 	vPresNulo = Column(SmallInteger, default=0)
 	vPresBranco = Column(SmallInteger, default=0)
 
+	qGovComp = Column(SmallInteger)
 	vGovA = Column(SmallInteger) # Mais Alinhado com Bolsonaro
 	vGovB = Column(SmallInteger) # Mais Alinhado com Lula
 	vGovNulo = Column(SmallInteger)
 	vGovBranco = Column(SmallInteger)
 
-	qEleitAptos = Column(SmallInteger, nullable=False)
-	qComparecimento = Column(SmallInteger, default=0)
+	vSenA = Column(SmallInteger) # Mais Alinhado com Bolsonaro
+	vSenB = Column(SmallInteger) # Mais Alinhado com Lula
+	vSenNulo = Column(SmallInteger)
+	vSenBranco = Column(SmallInteger)
+
 	qEleitLibCodigo = Column(SmallInteger, default=0)
 	qEleitBiometrico = Column(SmallInteger, default=0)
 
 	# Dados do Arquivo de LOG da Urna # não usar "nullable=False"
-	vPresTotal = Column(SmallInteger) # conta os votos de presidente recebidos no log da urna, tem que bater com o BU
+	# vPresTotal = Column(SmallInteger) # conta os votos de presidente recebidos no log da urna, tem que bater com o BU
 	modelUrna = Column(String(6), default='UE0000') # "UE0000" BUs Sem Log da urna | "UE1111" BUs Com Log da urna que nao informa o modelo.
 
 	# Estudos

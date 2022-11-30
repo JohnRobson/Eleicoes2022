@@ -1,0 +1,591 @@
+$ nice -n 20 python src_processa_dados.py
+Carrega Programa do TSE para Decodificar BUs
+CRIAÇÃO DO BANCO DE DADOS DOS ARQUIVOS DE TOTALIZAÇÃO DAS URNAS 2022
+
+27/11/2022 22:31:42 Descompactando Totalizações: CO - DF - Distrito Federal - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_DF.zip (1.0G)
+....+.
+27/11/2022 22:32:31 Processando Urnas: CO - DF - Distrito Federal - Total de Urnas em Processamento: 6748
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6].......
+27/11/2022 22:34:27 Salvando Urnas no Banco de Dados: CO - DF - Distrito Federal - Urnas Salvas no BD: 6748 (Total no BD: 6748)
+
+27/11/2022 22:34:28 Descompactando Totalizações: CO - GO - Goiás - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_GO.zip (2.192G)
+....+....*....
+27/11/2022 22:35:37 Processando Urnas: CO - GO - Goiás - Total de Urnas em Processamento: 14620
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]......
+27/11/2022 22:40:36 Salvando Urnas no Banco de Dados: CO - GO - Goiás - Urnas Salvas no BD: 14620 (Total no BD: 21368)
+
+27/11/2022 22:40:39 Descompactando Totalizações: CO - MT - Mato Grosso - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_MT.zip (1.052G)
+....+..
+27/11/2022 22:41:02 Processando Urnas: CO - MT - Mato Grosso - Total de Urnas em Processamento: 7652
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]......
+27/11/2022 22:43:31 Salvando Urnas no Banco de Dados: CO - MT - Mato Grosso - Urnas Salvas no BD: 7652 (Total no BD: 29020)
+
+27/11/2022 22:43:33 Descompactando Totalizações: CO - MS - Mato Grosso do Sul - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_MS.zip (0.956G)
+....+.
+27/11/2022 22:43:56 Processando Urnas: CO - MS - Mato Grosso do Sul - Total de Urnas em Processamento: 6912
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6].........
+27/11/2022 22:46:01 Salvando Urnas no Banco de Dados: CO - MS - Mato Grosso do Sul - Urnas Salvas no BD: 6912 (Total no BD: 35932)
+
+27/11/2022 22:46:03 Descompactando Totalizações: NE - AL - Alagoas - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_AL.zip (1.011G)
+....+.
+27/11/2022 22:46:35 Processando Urnas: NE - AL - Alagoas - Total de Urnas em Processamento: 6626
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]......
+27/11/2022 22:48:49 Salvando Urnas no Banco de Dados: NE - AL - Alagoas - Urnas Salvas no BD: 6626 (Total no BD: 42558)
+
+27/11/2022 22:48:51 Descompactando Totalizações: NE - BA - Bahia - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_BA.zip (5.252G)
+....+....*....+....*....+....*....
+27/11/2022 22:52:02 Processando Urnas: NE - BA - Bahia - Total de Urnas em Processamento: 34424
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..........[17]..........[18]..........[19]..........[20]..........[21]..........[22]..........[23]..........[24]..........[25]..........[26]..........[27]..........[28]..........[29]..........[30]..........[31]..........[32]..........[33]..........[34]....
+27/11/2022 23:09:47 Salvando Urnas no Banco de Dados: NE - BA - Bahia - Urnas Salvas no BD: 34424 (Total no BD: 76982)
+
+27/11/2022 23:09:54 Descompactando Totalizações: NE - CE - Ceará - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_CE.zip (3.293G)
+....+....*....+....*..
+27/11/2022 23:11:41 Processando Urnas: NE - CE - Ceará - Total de Urnas em Processamento: 22796
+..........[1]..........[2]..........[3]..........[4].......
+
+No columns to parse from file
+Erro no Arquivo Log da Urna: o00406-1419200400050.logjez - 14192, 40, 1406, 50
+...[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..........[17]..........[18]..........[19]..........[20]..........[21]..........[22].......
+27/11/2022 23:21:40 Salvando Urnas no Banco de Dados: NE - CE - Ceará - Urnas Salvas no BD: 22796 (Total no BD: 99778)
+
+27/11/2022 23:21:44 Descompactando Totalizações: NE - MA - Maranhão - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_MA.zip (2.315G)
+....+....*....+.
+27/11/2022 23:22:55 Processando Urnas: NE - MA - Maranhão - Total de Urnas em Processamento: 16423
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]....
+27/11/2022 23:28:58 Salvando Urnas no Banco de Dados: NE - MA - Maranhão - Urnas Salvas no BD: 16423 (Total no BD: 116201)
+
+27/11/2022 23:29:01 Descompactando Totalizações: NE - PB - Paraíba - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_PB.zip (1.416G)
+....+....
+27/11/2022 23:29:42 Processando Urnas: NE - PB - Paraíba - Total de Urnas em Processamento: 9602
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]......
+27/11/2022 23:32:54 Salvando Urnas no Banco de Dados: NE - PB - Paraíba - Urnas Salvas no BD: 9602 (Total no BD: 125803)
+
+27/11/2022 23:32:55 Descompactando Totalizações: NE - PE - Pernambuco - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_PE.zip (3.127G)
+....+....*....+....*
+27/11/2022 23:34:42 Processando Urnas: NE - PE - Pernambuco - Total de Urnas em Processamento: 20572
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..........[17]..........[18]..........[19]..........[20].....
+27/11/2022 23:42:53 Salvando Urnas no Banco de Dados: NE - PE - Pernambuco - Urnas Salvas no BD: 20572 (Total no BD: 146375)
+
+27/11/2022 23:42:56 Descompactando Totalizações: NE - PI - Piauí - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_PI.zip (1.265G)
+....+...
+27/11/2022 23:43:33 Processando Urnas: NE - PI - Piauí - Total de Urnas em Processamento: 8963
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8].........
+27/11/2022 23:46:25 Salvando Urnas no Banco de Dados: NE - PI - Piauí - Urnas Salvas no BD: 8963 (Total no BD: 155338)
+
+27/11/2022 23:46:27 Descompactando Totalizações: NE - RN - Rio Grande do Norte - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_RN.zip (1.168G)
+....+..
+27/11/2022 23:46:58 Processando Urnas: NE - RN - Rio Grande do Norte - Total de Urnas em Processamento: 7674
+..........[1]..........[2].
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-1691800540090.logjez'
+Erro no Arquivo Log da Urna: o00406-1691800540090.logjez - 16918, 54, 1031, 90
+.........[3]..........[4]..........[5]..........[6]..........[7]......
+27/11/2022 23:49:37 Salvando Urnas no Banco de Dados: NE - RN - Rio Grande do Norte - Urnas Salvas no BD: 7674 (Total no BD: 163012)
+
+27/11/2022 23:49:38 Descompactando Totalizações: NE - SE - Sergipe - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_SE.zip (0.797G)
+....+
+27/11/2022 23:49:58 Processando Urnas: NE - SE - Sergipe - Total de Urnas em Processamento: 5498
+..........[1]..........[2]..........[3]..........[4]..........[5]....
+27/11/2022 23:51:41 Salvando Urnas no Banco de Dados: NE - SE - Sergipe - Urnas Salvas no BD: 5498 (Total no BD: 168510)
+
+27/11/2022 23:51:42 Descompactando Totalizações: N - AC - Acre - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_AC.zip (0.29G)
+..
+27/11/2022 23:51:46 Processando Urnas: N - AC - Acre - Total de Urnas em Processamento: 2124
+..........[1]..........[2].
+27/11/2022 23:52:22 Salvando Urnas no Banco de Dados: N - AC - Acre - Urnas Salvas no BD: 2124 (Total no BD: 170634)
+
+27/11/2022 23:52:23 Descompactando Totalizações: N - AP - Amapá - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_AP.zip (0.254G)
+.
+27/11/2022 23:52:26 Processando Urnas: N - AP - Amapá - Total de Urnas em Processamento: 1740
+..........[1].......
+27/11/2022 23:52:56 Salvando Urnas no Banco de Dados: N - AP - Amapá - Urnas Salvas no BD: 1740 (Total no BD: 172374)
+
+27/11/2022 23:52:57 Descompactando Totalizações: N - AM - Amazonas - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_AM.zip (1.132G)
+....+..
+27/11/2022 23:53:28 Processando Urnas: N - AM - Amazonas - Total de Urnas em Processamento: 7453
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]....
+27/11/2022 23:55:56 Salvando Urnas no Banco de Dados: N - AM - Amazonas - Urnas Salvas no BD: 7453 (Total no BD: 179827)
+
+27/11/2022 23:55:58 Descompactando Totalizações: N - PA - Pará - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_PA.zip (2.661G)
+....+....*....+...
+27/11/2022 23:57:19 Processando Urnas: N - PA - Pará - Total de Urnas em Processamento: 18235
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..........[17]..........[18]..
+28/11/2022 00:04:51 Salvando Urnas no Banco de Dados: N - PA - Pará - Urnas Salvas no BD: 18235 (Total no BD: 198062)
+
+28/11/2022 00:04:55 Descompactando Totalizações: N - RO - Rondônia - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_RO.zip (0.583G)
+....
+28/11/2022 00:05:03 Processando Urnas: N - RO - Rondônia - Total de Urnas em Processamento: 4198
+..........[1]..........[2]..........[3]..........[4].
+28/11/2022 00:06:25 Salvando Urnas no Banco de Dados: N - RO - Rondônia - Urnas Salvas no BD: 4198 (Total no BD: 202260)
+
+28/11/2022 00:06:26 Descompactando Totalizações: N - RR - Roraima - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_RR.zip (0.174G)
+.
+28/11/2022 00:06:28 Processando Urnas: N - RR - Roraima - Total de Urnas em Processamento: 1268
+..........[1]..
+28/11/2022 00:06:49 Salvando Urnas no Banco de Dados: N - RR - Roraima - Urnas Salvas no BD: 1268 (Total no BD: 203528)
+
+28/11/2022 00:06:50 Descompactando Totalizações: N - TO - Tocantins - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_TO.zip (0.546G)
+...
+28/11/2022 00:06:57 Processando Urnas: N - TO - Tocantins - Total de Urnas em Processamento: 3957
+..........[1]..........[2]..........[3].........
+28/11/2022 00:08:17 Salvando Urnas no Banco de Dados: N - TO - Tocantins - Urnas Salvas no BD: 3957 (Total no BD: 207485)
+
+28/11/2022 00:08:18 Descompactando Totalizações: SE - ES - Espírito Santo - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_ES.zip (1.179G)
+....+....
+28/11/2022 00:08:56 Processando Urnas: SE - ES - Espírito Santo - Total de Urnas em Processamento: 9239
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..
+28/11/2022 00:11:44 Salvando Urnas no Banco de Dados: SE - ES - Espírito Santo - Urnas Salvas no BD: 9239 (Total no BD: 216724)
+
+28/11/2022 00:11:45 Descompactando Totalizações: SE - MG - Minas Gerais - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_MG.zip (7.115G)
+....+....*....+....*....+....*....+....*....+....
+28/11/2022 00:16:17 Processando Urnas: SE - MG - Minas Gerais - Total de Urnas em Processamento: 49981
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..........[17]..........[18]..........[19]..........[20]..........[21]..........[22]..........[23].
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-5139002440091.logjez'
+Erro no Arquivo Log da Urna: o00406-5139002440091.logjez - 51390, 244, 1279, 91
+.........[24]..........[25]..........[26]..........[27]..........[28]..........[29]..........[30]..........[31]..........[32]..........[33]..........[34]..........[35]..........[36]..........[37]..........[38]..........[39]..........[40]..........[41]..........[42]..........[43]..........[44]..........[45]..........[46]..........[47]..........[48]..........[49].........
+28/11/2022 00:46:53 Salvando Urnas no Banco de Dados: SE - MG - Minas Gerais - Urnas Salvas no BD: 49981 (Total no BD: 266705)
+
+28/11/2022 00:47:06 Descompactando Totalizações: SE - RJ - Rio de Janeiro - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_RJ.zip (5.427G)
+....+....*....+....*....+....*....
+28/11/2022 00:49:52 Processando Urnas: SE - RJ - Rio de Janeiro - Total de Urnas em Processamento: 34068
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..........[17]..........[18]..........[19]..........[20]..........[21]..........[22]..........[23]..........[24]..........[25]..........[26]..........[27]..........[28]..........[29]..........[30]..........[31]..........[32]..........[33]..........[34]
+28/11/2022 01:08:08 Salvando Urnas no Banco de Dados: SE - RJ - Rio de Janeiro - Urnas Salvas no BD: 34068 (Total no BD: 300773)
+
+28/11/2022 01:08:14 Descompactando Totalizações: SE - SP - São Paulo - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_SP.zip (15.374G)
+....+....*....+....*....+....*....+....*....+....*....+....*....+....*....+....*....+....*....+....*.
+28/11/2022 01:19:00 Processando Urnas: SE - SP - São Paulo - Total de Urnas em Processamento: 101073
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..........[17]..........[18]..........[19]..........[20]..........[21]..........[22]..........[23]..........[24]..........[25]..........[26]..........[27]..........[28]..........[29]..........[30]..........[31]..........[32]..........[33]..........[34]..........[35]..........[36]..........[37]..........[38]..........[39]..........[40]..........[41]..........[42]..........[43]..........[44]..........[45]..........[46]..........[47]..........[48]..........[49]..........[50]..........[51]..........[52]..........[53]..........[54]..........[55]..........[56]..........[57]..........[58]..........[59]..........[60]..........[61]..........[62]..........[63]..........[64]..........[65]..........[66]..........[67]..........[68]..........[69]..........[70]..........[71]..........[72]..........[73]..........[74]..........[75]..........[76]..........[77]..........[78]..........[79]..........[80]..........[81]..........[82]..........[83]..........[84]..........[85]..........[86]..........[87]..........[88]..........[89]..........[90]..........[91]..........[92]..........[93]..........[94]..........[95]..........[96]..........[97]..........[98]..........[99]..........[100]..........[101]
+28/11/2022 03:06:49 Salvando Urnas no Banco de Dados: SE - SP - São Paulo - Urnas Salvas no BD: 101073 (Total no BD: 401846)
+
+28/11/2022 03:07:24 Descompactando Totalizações: S - PR - Paraná - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_PR.zip (3.836G)
+....+....*....+....*....+
+28/11/2022 03:09:31 Processando Urnas: S - PR - Paraná - Total de Urnas em Processamento: 25721
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..........[17]..........[18]..........[19]..........[20]..........[21]..........[22]..........[23]..........[24]..........[25].......
+28/11/2022 03:20:29 Salvando Urnas no Banco de Dados: S - PR - Paraná - Urnas Salvas no BD: 25721 (Total no BD: 427567)
+
+28/11/2022 03:20:33 Descompactando Totalizações: S - RS - Rio Grande do Sul - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_RS.zip (4.038G)
+....+....*....+....*....+..
+28/11/2022 03:22:57 Processando Urnas: S - RS - Rio Grande do Sul - Total de Urnas em Processamento: 27201
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..........[17]..........[18]..........[19]..........[20]..........[21]..........[22]..........[23]..........[24]..........[25]..........[26]..........[27]..
+28/11/2022 03:34:49 Salvando Urnas no Banco de Dados: S - RS - Rio Grande do Sul - Urnas Salvas no BD: 27201 (Total no BD: 454768)
+
+28/11/2022 03:34:55 Descompactando Totalizações: S - SC - Santa Catarina - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_SC.zip (2.451G)
+....+....*....+.
+28/11/2022 03:36:18 Processando Urnas: S - SC - Santa Catarina - Total de Urnas em Processamento: 16242
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..
+28/11/2022 03:42:15 Salvando Urnas no Banco de Dados: S - SC - Santa Catarina - Urnas Salvas no BD: 16242 (Total no BD: 471010)
+
+28/11/2022 03:42:18 Descompactando Totalizações: EX - ZZ - Exterior - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_1t_ZZ.zip (0.074G)
+.
+28/11/2022 03:42:19 Processando Urnas: EX - ZZ - Exterior - Total de Urnas em Processamento: 1014
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010639.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010639.logjez - 29955, 1, 1031, 639
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010576.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010576.logjez - 29955, 1, 1031, 576
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010582.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010582.logjez - 29955, 1, 1031, 582
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010612.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010612.logjez - 29955, 1, 1031, 612
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010538.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010538.logjez - 29955, 1, 1031, 538
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010531.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010531.logjez - 29955, 1, 1031, 531
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010618.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010618.logjez - 29955, 1, 1031, 618
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500013170.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500013170.logjez - 29955, 1, 1031, 3170
+.
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010542.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010542.logjez - 29955, 1, 1031, 542
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010562.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010562.logjez - 29955, 1, 1031, 562
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010544.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010544.logjez - 29955, 1, 1031, 544
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010613.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010613.logjez - 29955, 1, 1031, 613
+.
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010567.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010567.logjez - 29955, 1, 1031, 567
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010632.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010632.logjez - 29955, 1, 1031, 632
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010539.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010539.logjez - 29955, 1, 1031, 539
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500013163.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500013163.logjez - 29955, 1, 1031, 3163
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010636.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010636.logjez - 29955, 1, 1031, 636
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010573.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010573.logjez - 29955, 1, 1031, 573
+.
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010592.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010592.logjez - 29955, 1, 1031, 592
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010554.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010554.logjez - 29955, 1, 1031, 554
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010579.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010579.logjez - 29955, 1, 1031, 579
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500013374.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500013374.logjez - 29955, 1, 1031, 3374
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500013363.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500013363.logjez - 29955, 1, 1031, 3363
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010621.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010621.logjez - 29955, 1, 1031, 621
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010620.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010620.logjez - 29955, 1, 1031, 620
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010560.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010560.logjez - 29955, 1, 1031, 560
+
+.
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500013390.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500013390.logjez - 29955, 1, 1031, 3390
+.
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500013041.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500013041.logjez - 29955, 1, 1031, 3041
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010623.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010623.logjez - 29955, 1, 1031, 623
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010635.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010635.logjez - 29955, 1, 1031, 635
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010581.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010581.logjez - 29955, 1, 1031, 581
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010599.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010599.logjez - 29955, 1, 1031, 599
+.
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500013080.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500013080.logjez - 29955, 1, 1031, 3080
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010594.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010594.logjez - 29955, 1, 1031, 594
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500013073.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500013073.logjez - 29955, 1, 1031, 3073
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010617.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010617.logjez - 29955, 1, 1031, 617
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500013394.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500013394.logjez - 29955, 1, 1031, 3394
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500013386.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500013386.logjez - 29955, 1, 1031, 3386
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010569.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010569.logjez - 29955, 1, 1031, 569
+.
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010535.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010535.logjez - 29955, 1, 1031, 535
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010570.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010570.logjez - 29955, 1, 1031, 570
+.
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010553.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010553.logjez - 29955, 1, 1031, 553
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010566.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010566.logjez - 29955, 1, 1031, 566
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010557.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010557.logjez - 29955, 1, 1031, 557
+.
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010605.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010605.logjez - 29955, 1, 1031, 605
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010600.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010600.logjez - 29955, 1, 1031, 600
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500013176.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500013176.logjez - 29955, 1, 1031, 3176
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010559.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010559.logjez - 29955, 1, 1031, 559
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010598.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010598.logjez - 29955, 1, 1031, 598
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010606.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010606.logjez - 29955, 1, 1031, 606
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010628.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010628.logjez - 29955, 1, 1031, 628
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010626.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010626.logjez - 29955, 1, 1031, 626
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500011420.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500011420.logjez - 29955, 1, 1031, 1420
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00406-2995500010634.logjez'
+Erro no Arquivo Log da Urna: o00406-2995500010634.logjez - 29955, 1, 1031, 634
+.[1]
+28/11/2022 03:42:29 Salvando Urnas no Banco de Dados: EX - ZZ - Exterior - Urnas Salvas no BD: 1014 (Total no BD: 472024)
+
+28/11/2022 03:42:29 PROCESSO CONCLUÍDO COM ÊXITO
+
+28/11/2022 03:42:29 Descompactando Totalizações: CO - DF - Distrito Federal - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_DF.zip (1.194G)
+....+.
+28/11/2022 03:42:56 Processando Urnas: CO - DF - Distrito Federal - Total de Urnas em Processamento: 6748
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6].......
+28/11/2022 03:45:35 Salvando Urnas no Banco de Dados: CO - DF - Distrito Federal - Urnas Salvas no BD: 6748 (Total no BD: 6748)
+
+28/11/2022 03:45:36 Descompactando Totalizações: CO - GO - Goiás - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_GO.zip (2.713G)
+....+....*....
+28/11/2022 03:46:38 Processando Urnas: CO - GO - Goiás - Total de Urnas em Processamento: 14620
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]......
+28/11/2022 03:53:11 Salvando Urnas no Banco de Dados: CO - GO - Goiás - Urnas Salvas no BD: 14620 (Total no BD: 21368)
+
+28/11/2022 03:53:13 Descompactando Totalizações: CO - MT - Mato Grosso - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_MT.zip (1.309G)
+....+..
+28/11/2022 03:53:39 Processando Urnas: CO - MT - Mato Grosso - Total de Urnas em Processamento: 7652
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]......
+28/11/2022 03:56:35 Salvando Urnas no Banco de Dados: CO - MT - Mato Grosso - Urnas Salvas no BD: 7652 (Total no BD: 29020)
+
+28/11/2022 03:56:38 Descompactando Totalizações: CO - MS - Mato Grosso do Sul - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_MS.zip (1.191G)
+....+.
+28/11/2022 03:57:05 Processando Urnas: CO - MS - Mato Grosso do Sul - Total de Urnas em Processamento: 6912
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6].........
+28/11/2022 03:59:42 Salvando Urnas no Banco de Dados: CO - MS - Mato Grosso do Sul - Urnas Salvas no BD: 6912 (Total no BD: 35932)
+
+28/11/2022 03:59:44 Descompactando Totalizações: NE - AL - Alagoas - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_AL.zip (1.331G)
+....+.
+28/11/2022 04:00:13 Processando Urnas: NE - AL - Alagoas - Total de Urnas em Processamento: 6626
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]......
+28/11/2022 04:03:09 Salvando Urnas no Banco de Dados: NE - AL - Alagoas - Urnas Salvas no BD: 6626 (Total no BD: 42558)
+
+28/11/2022 04:03:11 Descompactando Totalizações: NE - BA - Bahia - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_BA.zip (6.791G)
+....+....*....+....*....+....*....
+28/11/2022 04:06:08 Processando Urnas: NE - BA - Bahia - Total de Urnas em Processamento: 34424
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..........[17]..........[18]..........[19]..........[20]..........[21]..........[22]..........[23]..........[24]..........[25]..........[26]..........[27]..........[28]..........[29]..........[30]..........[31]..........[32]..........[33]..........[34]....
+28/11/2022 04:26:41 Salvando Urnas no Banco de Dados: NE - BA - Bahia - Urnas Salvas no BD: 34424 (Total no BD: 76982)
+
+28/11/2022 04:26:48 Descompactando Totalizações: NE - CE - Ceará - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_CE.zip (4.117G)
+....+....*....+....*..
+28/11/2022 04:28:35 Processando Urnas: NE - CE - Ceará - Total de Urnas em Processamento: 22796
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..........[17]..........[18]..........[19]..........[20]..........[21]..........[22].......
+28/11/2022 04:39:54 Salvando Urnas no Banco de Dados: NE - CE - Ceará - Urnas Salvas no BD: 22796 (Total no BD: 99778)
+
+28/11/2022 04:39:58 Descompactando Totalizações: NE - MA - Maranhão - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_MA.zip (2.873G)
+....+....*....+.
+28/11/2022 04:41:05 Processando Urnas: NE - MA - Maranhão - Total de Urnas em Processamento: 16423
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]....
+28/11/2022 04:48:13 Salvando Urnas no Banco de Dados: NE - MA - Maranhão - Urnas Salvas no BD: 16423 (Total no BD: 116201)
+
+28/11/2022 04:48:15 Descompactando Totalizações: NE - PB - Paraíba - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_PB.zip (1.842G)
+....+....
+28/11/2022 04:49:00 Processando Urnas: NE - PB - Paraíba - Total de Urnas em Processamento: 9602
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]......
+28/11/2022 04:53:15 Salvando Urnas no Banco de Dados: NE - PB - Paraíba - Urnas Salvas no BD: 9602 (Total no BD: 125803)
+
+28/11/2022 04:53:17 Descompactando Totalizações: NE - PE - Pernambuco - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_PE.zip (4.0G)
+....+....*....+....*
+28/11/2022 04:54:55 Processando Urnas: NE - PE - Pernambuco - Total de Urnas em Processamento: 20572
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..........[17]..........[18]..........[19]..........[20].....
+28/11/2022 05:05:25 Salvando Urnas no Banco de Dados: NE - PE - Pernambuco - Urnas Salvas no BD: 20572 (Total no BD: 146375)
+
+28/11/2022 05:05:29 Descompactando Totalizações: NE - PI - Piauí - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_PI.zip (1.604G)
+....+...
+28/11/2022 05:06:04 Processando Urnas: NE - PI - Piauí - Total de Urnas em Processamento: 8963
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8].........
+28/11/2022 05:09:42 Salvando Urnas no Banco de Dados: NE - PI - Piauí - Urnas Salvas no BD: 8963 (Total no BD: 155338)
+
+28/11/2022 05:09:44 Descompactando Totalizações: NE - RN - Rio Grande do Norte - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_RN.zip (1.491G)
+....+..
+28/11/2022 05:10:18 Processando Urnas: NE - RN - Rio Grande do Norte - Total de Urnas em Processamento: 7674
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]......
+28/11/2022 05:13:39 Salvando Urnas no Banco de Dados: NE - RN - Rio Grande do Norte - Urnas Salvas no BD: 7674 (Total no BD: 163012)
+
+28/11/2022 05:13:41 Descompactando Totalizações: NE - SE - Sergipe - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_SE.zip (1.029G)
+....+
+28/11/2022 05:14:02 Processando Urnas: NE - SE - Sergipe - Total de Urnas em Processamento: 5498
+..........[1]..........[2]..........[3]..........[4]..........[5]....
+28/11/2022 05:16:13 Salvando Urnas no Banco de Dados: NE - SE - Sergipe - Urnas Salvas no BD: 5498 (Total no BD: 168510)
+
+28/11/2022 05:16:15 Descompactando Totalizações: N - AC - Acre - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_AC.zip (0.342G)
+..
+28/11/2022 05:16:21 Processando Urnas: N - AC - Acre - Total de Urnas em Processamento: 2124
+..........[1]..........[2].
+28/11/2022 05:17:04 Salvando Urnas no Banco de Dados: N - AC - Acre - Urnas Salvas no BD: 2124 (Total no BD: 170634)
+
+28/11/2022 05:17:05 Descompactando Totalizações: N - AP - Amapá - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_AP.zip (0.296G)
+.
+28/11/2022 05:17:09 Processando Urnas: N - AP - Amapá - Total de Urnas em Processamento: 1740
+..........[1].......
+28/11/2022 05:17:46 Salvando Urnas no Banco de Dados: N - AP - Amapá - Urnas Salvas no BD: 1740 (Total no BD: 172374)
+
+28/11/2022 05:17:46 Descompactando Totalizações: N - AM - Amazonas - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_AM.zip (1.44G)
+....+..
+28/11/2022 05:18:17 Processando Urnas: N - AM - Amazonas - Total de Urnas em Processamento: 7453
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]....
+28/11/2022 05:21:30 Salvando Urnas no Banco de Dados: N - AM - Amazonas - Urnas Salvas no BD: 7453 (Total no BD: 179827)
+
+28/11/2022 05:21:32 Descompactando Totalizações: N - PA - Pará - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_PA.zip (3.298G)
+....+....*....+...
+28/11/2022 05:22:49 Processando Urnas: N - PA - Pará - Total de Urnas em Processamento: 18235
+..........[1]..........[2]...
+
+[Errno 2] No such file or directory: './tse/tmp/o00407-0465000060060.logjez'
+Erro no Arquivo Log da Urna: o00407-0465000060060.logjez - 4650, 6, 1287, 60
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00407-0465000060111.logjez'
+Erro no Arquivo Log da Urna: o00407-0465000060111.logjez - 4650, 6, 1287, 111
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00407-0465000060109.logjez'
+Erro no Arquivo Log da Urna: o00407-0465000060109.logjez - 4650, 6, 1422, 109
+.
+
+[Errno 2] No such file or directory: './tse/tmp/o00407-0465000060072.logjez'
+Erro no Arquivo Log da Urna: o00407-0465000060072.logjez - 4650, 6, 1368, 72
+
+
+[Errno 2] No such file or directory: './tse/tmp/o00407-0465000060059.logjez'
+Erro no Arquivo Log da Urna: o00407-0465000060059.logjez - 4650, 6, 1287, 59
+......[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..........[17]..........[18]..
+28/11/2022 05:31:12 Salvando Urnas no Banco de Dados: N - PA - Pará - Urnas Salvas no BD: 18235 (Total no BD: 198062)
+
+28/11/2022 05:31:14 Descompactando Totalizações: N - RO - Rondônia - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_RO.zip (0.736G)
+....
+28/11/2022 05:31:33 Processando Urnas: N - RO - Rondônia - Total de Urnas em Processamento: 4198
+..........[1]..........[2]..........[3]..........[4].
+28/11/2022 05:33:06 Salvando Urnas no Banco de Dados: N - RO - Rondônia - Urnas Salvas no BD: 4198 (Total no BD: 202260)
+
+28/11/2022 05:33:07 Descompactando Totalizações: N - RR - Roraima - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_RR.zip (0.2G)
+.
+28/11/2022 05:33:10 Processando Urnas: N - RR - Roraima - Total de Urnas em Processamento: 1268
+..........[1]..
+28/11/2022 05:33:35 Salvando Urnas no Banco de Dados: N - RR - Roraima - Urnas Salvas no BD: 1268 (Total no BD: 203528)
+
+28/11/2022 05:33:35 Descompactando Totalizações: N - TO - Tocantins - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_TO.zip (0.671G)
+...
+28/11/2022 05:33:48 Processando Urnas: N - TO - Tocantins - Total de Urnas em Processamento: 3957
+..........[1]..........[2]..........[3].........
+28/11/2022 05:35:14 Salvando Urnas no Banco de Dados: N - TO - Tocantins - Urnas Salvas no BD: 3957 (Total no BD: 207485)
+
+28/11/2022 05:35:14 Descompactando Totalizações: SE - ES - Espírito Santo - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_ES.zip (1.434G)
+....+....
+28/11/2022 05:35:45 Processando Urnas: SE - ES - Espírito Santo - Total de Urnas em Processamento: 9239
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..
+28/11/2022 05:39:08 Salvando Urnas no Banco de Dados: SE - ES - Espírito Santo - Urnas Salvas no BD: 9239 (Total no BD: 216724)
+
+28/11/2022 05:39:09 Descompactando Totalizações: SE - MG - Minas Gerais - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_MG.zip (8.634G)
+....+....*....+....*....+....*....+....*....+....
+28/11/2022 05:43:29 Processando Urnas: SE - MG - Minas Gerais - Total de Urnas em Processamento: 49981
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..........[17]..........[18]..........[19]..........[20]..........[21]..........[22]..........[23]..........[24]..........[25]..........[26]..........[27]..........[28]..........[29]..........[30]..........[31]..........[32]..........[33]..........[34]..........[35]..........[36]..........[37]..........[38]..........[39]..........[40]..........[41]..........[42]..........[43]..........[44]..........[45]..........[46]..........[47]..........[48]..........[49].........
+28/11/2022 06:16:19 Salvando Urnas no Banco de Dados: SE - MG - Minas Gerais - Urnas Salvas no BD: 49981 (Total no BD: 266705)
+
+28/11/2022 06:16:27 Descompactando Totalizações: SE - RJ - Rio de Janeiro - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_RJ.zip (6.539G)
+....+....*....+....*....+....*....
+28/11/2022 06:19:27 Processando Urnas: SE - RJ - Rio de Janeiro - Total de Urnas em Processamento: 34068
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..........[17]..........[18]..........[19]..........[20]..........[21]..........[22]..........[23]..........[24]..........[25]..........[26]..........[27]..........[28]..........[29]..........[30]..........[31]..........[32]..........[33]..........[34]
+28/11/2022 06:39:06 Salvando Urnas no Banco de Dados: SE - RJ - Rio de Janeiro - Urnas Salvas no BD: 34068 (Total no BD: 300773)
+
+28/11/2022 06:39:11 Descompactando Totalizações: SE - SP - São Paulo - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_SP.zip (18.777G)
+....+....*....+....*....+....*....+....*....+....*....+....*....+....*....+....*....+....*....+....*.
+28/11/2022 06:48:56 Processando Urnas: SE - SP - São Paulo - Total de Urnas em Processamento: 101073
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..........[17]..........[18]..........[19]..........[20]..........[21]..........[22]..........[23]..........[24]..........[25]..........[26]..........[27]..........[28]..........[29]..........[30]..........[31]..........[32]..........[33]..........[34]..........[35]..........[36]..........[37]..........[38]..........[39]..........[40]..........[41]..........[42]..........[43]..........[44]..........[45]..........[46]..........[47]..........[48]..........[49]..........[50]..........[51]..........[52]..........[53]..........[54]..........[55]..........[56]..........[57]..........[58]..........[59]..........[60]..........[61]..........[62]..........[63]..........[64]..........[65]..........[66]..........[67]..........[68]..........[69]..........[70]..........[71]..........[72]..........[73]..........[74]..........[75]..........[76]..........[77]..........[78]..........[79]..........[80]..........[81]..........[82]..........[83]..........[84]..........[85]..........[86]..........[87]..........[88]..........[89]..........[90]..........[91]..........[92]..........[93]..........[94]..........[95]..........[96]..........[97]..........[98]..........[99]..........[100]..........[101]
+28/11/2022 08:37:09 Salvando Urnas no Banco de Dados: SE - SP - São Paulo - Urnas Salvas no BD: 101073 (Total no BD: 401846)
+
+28/11/2022 08:37:41 Descompactando Totalizações: S - PR - Paraná - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_PR.zip (4.754G)
+....+....*....+....*....+
+28/11/2022 08:40:06 Processando Urnas: S - PR - Paraná - Total de Urnas em Processamento: 25721
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..........[17]..........[18]..........[19]..........[20]..........[21]..........[22]..........[23]..........[24]..........[25].......
+28/11/2022 08:53:23 Salvando Urnas no Banco de Dados: S - PR - Paraná - Urnas Salvas no BD: 25721 (Total no BD: 427567)
+
+28/11/2022 08:53:27 Descompactando Totalizações: S - RS - Rio Grande do Sul - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_RS.zip (5.136G)
+....+....*....+....*....+..
+28/11/2022 08:55:48 Processando Urnas: S - RS - Rio Grande do Sul - Total de Urnas em Processamento: 27201
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..........[17]..........[18]..........[19]..........[20]..........[21]..........[22]..........[23]..........[24]..........[25]..........[26]..........[27]..
+28/11/2022 09:10:23 Salvando Urnas no Banco de Dados: S - RS - Rio Grande do Sul - Urnas Salvas no BD: 27201 (Total no BD: 454768)
+
+28/11/2022 09:10:27 Descompactando Totalizações: S - SC - Santa Catarina - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_SC.zip (3.15G)
+....+....*....+.
+28/11/2022 09:11:37 Processando Urnas: S - SC - Santa Catarina - Total de Urnas em Processamento: 16242
+..........[1]..........[2]..........[3]..........[4]..........[5]..........[6]..........[7]..........[8]..........[9]..........[10]..........[11]..........[12]..........[13]..........[14]..........[15]..........[16]..
+28/11/2022 09:19:29 Salvando Urnas no Banco de Dados: S - SC - Santa Catarina - Urnas Salvas no BD: 16242 (Total no BD: 471010)
+
+28/11/2022 09:19:32 Descompactando Totalizações: EX - ZZ - Exterior - ./tse/bu_imgbu_logjez_rdv_vscmr_2022_2t_ZZ.zip (0.101G)
+.
+28/11/2022 09:19:33 Processando Urnas: EX - ZZ - Exterior - Total de Urnas em Processamento: 1017
+..........[1]
+28/11/2022 09:19:46 Salvando Urnas no Banco de Dados: EX - ZZ - Exterior - Urnas Salvas no BD: 1017 (Total no BD: 472027)
+
+28/11/2022 09:19:47 PROCESSO CONCLUÍDO COM ÊXITO
