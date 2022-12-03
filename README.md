@@ -58,9 +58,9 @@ Resultado dos 2 Turnos para cada estado:
 SELECT turno, regiao, estado, SUM(vPresA22) AS "Bolsonaro", SUM(vPresB13) AS "Lula", SUM(vPresNulo) AS "pNulo", SUM(vPresBranco) AS "pBranco", SUM(vGovA) AS "GovA", SUM(vGovB) AS "GovB", SUM(vGovNulo) AS "gNulo", SUM(vGovBranco) AS "gBranco" FROM urnas GROUP BY turno, estado ORDER BY turno, regiao, estado
 ````
 
-Total de votos de urnas e votos das urnas que fecharam 15 minutos após a o horário oficial de fechamento:
+Total de votos das urnas que fecharam 15 minutos após a o horário oficial de fechamento:
 ````{verbatim, lang = "markdown"}
-SELECT turno, count(id), sum(qComparecimento) FROM urnas WHERE datetime(dataHoraEncerramento) > datetime(dataHoraAbertura, '+09:15:00') GROUP BY turno;
+SELECT turno, count(id) AS "Total Urnas", sum(vPresA22) AS "Votos Bolsonaro", sum(vPresB13) AS "Votos Lula" FROM urnas WHERE datetime(dataHoraEncerramento) > datetime(dataHoraAbertura, '+09:15:00') GROUP BY turno;
 ````
 
 Percentual de comparecimento, ou seja a razão entre o número de eleitores que votaram e os que estavam aptos:
