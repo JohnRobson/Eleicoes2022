@@ -75,7 +75,7 @@ SELECT turno, regiao, estado, municipio, SUM(qEleitAptos) AS eleitores, SUM(qCom
 
 Seções com maior número de tentativa de votos para títulos que "já tinham votado".
 ````{verbatim, lang = "markdown"}
-SELECT turno, regiao, estado, municipio, zona, local, secao, qComparecimento, jaVotou FROM urnas WHERE turno=2 ORDER BY jaVotou DESC;
+SELECT turno, regiao, estado, municipio, zona, local, secao, qComparecimento, jaVotou FROM urnas WHERE turno = 2 AND jaVotou > 0 ORDER BY jaVotou DESC;
 ````
 
 Maioria das urnas com mais votos por minutos dão grande vantagem para Lula
