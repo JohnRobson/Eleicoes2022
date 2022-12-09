@@ -16,7 +16,9 @@ https://github.com/JohnRobson/Eleicoes2022
 
 ### DOWNLOAD do Banco de Dados com o 1° e 2° turnos (944.051 registros):
 
-> https://mega.nz/file/AA1xFIba#qtNIePEohlBJW1ymFcoY1M3K1ZQ02z2wVy1s3Qaubo8
+> Formato SQLite3: https://mega.nz/file/AA1xFIba#qtNIePEohlBJW1ymFcoY1M3K1ZQ02z2wVy1s3Qaubo8
+
+> Formato CSV: https://mega.nz/file/wVVgBCrI#w8EKcZMfTNO7-Mvu6bi_stIhAuctpvomU4YsTbVcikg
 
 Este aquivo tem um banco de dados SQLite com o Registro de Todas as Urnas (944.051) com os Votos para Presidente e Governador no 1° e 2° Turnos nas eleições de 2022.
 
